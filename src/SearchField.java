@@ -14,20 +14,28 @@ public class SearchField extends JPanel {
     private JList<String> suggestionList;
     private DefaultListModel<String> listModel;
     private RoundedTextField searchInput;
-    private ArrayList<Double> longitudes; // Store longitudes
-    private ArrayList<Double> latitudes;  // Store latitudes
-
-    public SearchField() {
+    public ArrayList<Double> longitudes; // Store longitudes
+    public ArrayList<Double> latitudes;  // Store latitudes
+    private final Home home;
+    public SearchField(Home home) {
+        this.home = home;
         setLayout(null); // Allow absolute positioning
         setPreferredSize(new Dimension(250, 150)); // Adjust based on needed size
+        setOpaque(false); // Make the panel transparent
+
+        // Create a padding panel
+        JPanel paddingPanel = new JPanel();
+        paddingPanel.setLayout(null);
+        paddingPanel.setBounds(5, 5, 240, 140); // Padding of 5px
+        paddingPanel.setOpaque(false); // Make the padding panel transparent
 
         searchInput = new RoundedTextField(15, "Search For Location"); // 15 is the corner radius
         searchInput.setPreferredSize(new Dimension(250, 40));
-        searchInput.setBounds(0, 5, 250, 40); // Set position and size
+        searchInput.setBounds(0, 0, 240, 40); // Set position and size
         searchInput.setBackground(Color.white);
         searchInput.setBorder(null);
 
-        add(searchInput);
+        paddingPanel.add(searchInput);
 
         // Initialize suggestionList and ArrayLists
         listModel = new DefaultListModel<>();
@@ -38,12 +46,13 @@ public class SearchField extends JPanel {
         longitudes = new ArrayList<>();
         latitudes = new ArrayList<>();
 
-        suggestionList.setBounds(0, 45, 250, 100);
-        suggestionList.setPreferredSize(new Dimension(250, 100));
+        suggestionList.setBounds(0, 45, 240, 100); // Adjusted to fit padding
+        suggestionList.setPreferredSize(new Dimension(240, 100));
         suggestionList.setBackground(Color.WHITE);
         suggestionList.setSelectionBackground(new Color(220, 220, 220));
 
-        add(suggestionList);
+        paddingPanel.add(suggestionList);
+        add(paddingPanel); // Add the padding panel to the main panel
 
         // Add DocumentListener to search field
         searchInput.getDocument().addDocumentListener(new DocumentListener() {
@@ -80,11 +89,24 @@ public class SearchField extends JPanel {
                         double selectedLatitude = latitudes.get(selectedIndex);
 
                         // Pass latitude and longitude to getWeatherData
-                        WeatherApi.getWeatherData(selectedLatitude,selectedLongitude);
+                        WeatherApi.getWeatherData(selectedLatitude, selectedLongitude);
+                        WeatherData data = new WeatherData();
+                        data.setLat(selectedLatitude);
+                        data.setLon(selectedLongitude);
+                        data.setName(selectedValue);
+                        Home.locationList.add(data);
+                        home.updateWeatherPanelFromLatest();
+
                     }
                 }
             }
         });
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        // Optional: You can add custom painting here if needed
     }
 
     private void updateSuggestions() {

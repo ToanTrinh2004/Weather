@@ -22,9 +22,11 @@ public class Home_Header extends JPanel {
     JButton search = new JButton();
 
     // Add a JList for displaying suggestions
+    private final Home home;
 
 
-    public Home_Header() {
+    public Home_Header(Home home) {
+        this.home = home;
         // Set bounds for the panel itself
         setBounds(0, 0, 1920, 50); // Full width
         setBackground(Color.decode("#f2f2f2"));
@@ -39,6 +41,13 @@ public class Home_Header extends JPanel {
         // Refresh button
         setButtonStyle(refresh, "/Assets/refresh.png", 600);
         add(refresh);
+        refresh.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                home.updateWeatherPanelFromLatest();
+
+            }
+        });
 
         // Pin button
         setButtonStyle(pin, "/Assets/pin.png", 700);

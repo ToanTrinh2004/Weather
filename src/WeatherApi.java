@@ -17,7 +17,9 @@ public class WeatherApi {
         // build API request URL with location coordinates
         String urlString = "https://api.open-meteo.com/v1/forecast?" +
                 "latitude=" + latitude + "&longitude=" + longitude +
-                "&hourly=temperature_2m,relativehumidity_2m,weathercode,windspeed_10m&timezone=America%2FLos_Angeles";
+                "&current=temperature_2m,relative_humidity_2m,is_day,weather_code,surface_pressure,wind_speed_10m&hourly" +
+                "=temperature_2m,relative_humidity_2m,dew_point_2m,weather_code,visibility," +
+                "wind_speed_10m&daily=weather_code,temperature_2m_max,temperature_2m_min,daylight_duration,uv_index_max";
 
         try{
             // call api and get response
@@ -49,37 +51,29 @@ public class WeatherApi {
             JSONObject resultJsonObj = (JSONObject) parser.parse(String.valueOf(resultJson));
 
             // retrieve hourly data
-            JSONObject hourly = (JSONObject) resultJsonObj.get("hourly");
+            JSONObject current = (JSONObject) resultJsonObj.get("current");
 
-            // we want to get the current hour's data
-            // so we need to get the index of our current hour
-            JSONArray time = (JSONArray) hourly.get("time");
-            int index = findIndexOfCurrentTime(time);
+// Extract data from the current hour's JSON object
+            String time = (String) current.get("time");
+            boolean status = ((Number) current.get("is_day")).intValue() == 1;
+            double temperature = ((Number) current.get("temperature_2m")).doubleValue();
+            double humidity = ((Number) current.get("relative_humidity_2m")).doubleValue();
+            double pressure = ((Number) current.get("surface_pressure")).doubleValue();
+            double windspeed = ((Number) current.get("wind_speed_10m")).doubleValue();
+            int weatherCondition = ((Number) current.get("weather_code")).intValue();
 
-            // get temperature
-            JSONArray temperatureData = (JSONArray) hourly.get("temperature_2m");
-            double temperature = (double) temperatureData.get(index);
-
-            // get weather code
-            JSONArray weathercode = (JSONArray) hourly.get("weathercode");
-            String weatherCondition = convertWeatherCode((long) weathercode.get(index));
-
-            // get humidity
-            JSONArray relativeHumidity = (JSONArray) hourly.get("relativehumidity_2m");
-            long humidity = (long) relativeHumidity.get(index);
-
-            // get windspeed
-            JSONArray windspeedData = (JSONArray) hourly.get("windspeed_10m");
-            double windspeed = (double) windspeedData.get(index);
-
-            // build the weather json data object that we are going to access in our frontend
+// Build the weather JSON data object to be accessed on the frontend
             JSONObject weatherData = new JSONObject();
+            weatherData.put("time", time);
+            weatherData.put("status", status); // Adding the day/night status
             weatherData.put("temperature", temperature);
-            weatherData.put("weather_condition", weatherCondition);
             weatherData.put("humidity", humidity);
+            weatherData.put("pressure", pressure); // Adding pressure to match JSON structure
             weatherData.put("windspeed", windspeed);
+            weatherData.put("weather_condition", weatherCondition);
 
             return weatherData;
+
         }catch(Exception e){
             e.printStackTrace();
         }
