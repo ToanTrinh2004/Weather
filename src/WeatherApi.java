@@ -1,8 +1,6 @@
-
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -17,9 +15,9 @@ public class WeatherApi {
         // build API request URL with location coordinates
         String urlString = "https://api.open-meteo.com/v1/forecast?" +
                 "latitude=" + latitude + "&longitude=" + longitude +
-                "&current=temperature_2m,relative_humidity_2m,is_day,weather_code,surface_pressure,wind_speed_10m&hourly" +
+                "&current=temperature_2m,relative_humidity_2m,is_day,weather_code,surface_pressure,wind_speed_10m,apparent_temperature&hourly" +
                 "=temperature_2m,relative_humidity_2m,dew_point_2m,weather_code,visibility," +
-                "wind_speed_10m&daily=weather_code,temperature_2m_max,temperature_2m_min,daylight_duration,uv_index_max";
+                "wind_speed_10m&daily=weather_code,temperature_2m_max,temperature_2m_min,uv_index_max,precipitation_sum,wind_speed_10m_max&timezone=auto";
 
         try{
             // call api and get response
@@ -52,15 +50,40 @@ public class WeatherApi {
 
             // retrieve hourly data
             JSONObject current = (JSONObject) resultJsonObj.get("current");
+            // retrieve hourly data
+            JSONObject hourly = (JSONObject) resultJsonObj.get("hourly");
+            JSONArray hourlyTime = (JSONArray) hourly.get("time");
+            int index = findIndexOfCurrentTime(hourlyTime);
+            JSONArray hourlyTemperature = (JSONArray) hourly.get("temperature_2m");
+            JSONArray hourlyRelativeHumidity = (JSONArray) hourly.get("relativehumidity_2m");
+            JSONArray hourlyDewPoint = (JSONArray) hourly.get("dew_point_2m");
+            JSONArray hourlyRainychance = (JSONArray) hourly.get("precipitation_probability");
+            JSONArray hourlyWeathercode = (JSONArray) hourly.get("weather_code");
+            JSONArray hourlypressure = (JSONArray) hourly.get("surface_pressure");
+            JSONArray hourlyvisibility = (JSONArray) hourly.get("visibility");
+            JSONArray hourlywindspeed = (JSONArray) hourly.get("wind_speed_10m");
+            // daily data
+            JSONObject daily = (JSONObject) resultJsonObj.get("daily");
+            JSONArray dailyMaxTemperature = (JSONArray) daily.get("temperature_2m_max");
+            JSONArray dailyMinTemperature = (JSONArray) daily.get("temperature_2m_min");
+            JSONArray dailyWeathercode = (JSONArray) daily.get("weather_code");
+            JSONArray dailyRainychance = (JSONArray) daily.get("precipitation_sum");
+            JSONArray dailyWindspeed = (JSONArray) daily.get("wind_speed_10m_max");
+
+
+
 
 // Extract data from the current hour's JSON object
             String time = (String) current.get("time");
             boolean status = ((Number) current.get("is_day")).intValue() == 1;
             double temperature = ((Number) current.get("temperature_2m")).doubleValue();
+            double feelslike = ((Number) current.get("apparent_temperature")).doubleValue();
             double humidity = ((Number) current.get("relative_humidity_2m")).doubleValue();
             double pressure = ((Number) current.get("surface_pressure")).doubleValue();
             double windspeed = ((Number) current.get("wind_speed_10m")).doubleValue();
             int weatherCondition = ((Number) current.get("weather_code")).intValue();
+            double dewpoint = (double) hourlyDewPoint.get(index);
+
 
 // Build the weather JSON data object to be accessed on the frontend
             JSONObject weatherData = new JSONObject();
@@ -71,6 +94,7 @@ public class WeatherApi {
             weatherData.put("pressure", pressure); // Adding pressure to match JSON structure
             weatherData.put("windspeed", windspeed);
             weatherData.put("weather_condition", weatherCondition);
+            weatherData.put("feelslike",feelslike);
 
             return weatherData;
 
@@ -178,23 +202,5 @@ public class WeatherApi {
     }
 
     // convert the weather code to something more readable
-    private static String convertWeatherCode(long weathercode){
-        String weatherCondition = "";
-        if(weathercode == 0L){
-            // clear
-            weatherCondition = "Clear";
-        }else if(weathercode > 0L && weathercode <= 3L){
-            // cloudy
-            weatherCondition = "Cloudy";
-        }else if((weathercode >= 51L && weathercode <= 67L)
-                || (weathercode >= 80L && weathercode <= 99L)){
-            // rain
-            weatherCondition = "Rain";
-        }else if(weathercode >= 71L && weathercode <= 77L){
-            // snow
-            weatherCondition = "Snow";
-        }
 
-        return weatherCondition;
-    }
 }
