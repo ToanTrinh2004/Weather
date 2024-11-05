@@ -46,7 +46,7 @@ public class WeatherPanel extends JPanel {
         // Add labels and button to the panel
         currentWeather.add(currentLabel);
         currentLabel.setFont(new Font("Default", Font.BOLD, 15));
-        currentLabel.setBounds(10,10,200,15);
+        currentLabel.setBounds(10,10,200,20);
         currentWeather.add(timeLabel);
         timeLabel.setFont(new Font("Default", Font.PLAIN, 12));
         timeLabel.setForeground(Color.GRAY);
