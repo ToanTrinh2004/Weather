@@ -16,7 +16,7 @@ public class WeatherApi {
         String urlString = "https://api.open-meteo.com/v1/forecast?" +
                 "latitude=" + latitude + "&longitude=" + longitude +
                 "&current=temperature_2m,relative_humidity_2m,is_day,weather_code,surface_pressure,wind_speed_10m,apparent_temperature&hourly" +
-                "=temperature_2m,relative_humidity_2m,dew_point_2m,weather_code,visibility," +
+                "=temperature_2m,relative_humidity_2m,dew_point_2m,weather_code,visibility,precipitation_probability," +
                 "wind_speed_10m&daily=weather_code,temperature_2m_max,temperature_2m_min,uv_index_max,precipitation_sum,wind_speed_10m_max&timezone=auto";
 
         try{
@@ -53,7 +53,6 @@ public class WeatherApi {
             // retrieve hourly data
             JSONObject hourly = (JSONObject) resultJsonObj.get("hourly");
             JSONArray hourlyTime = (JSONArray) hourly.get("time");
-            int index = findIndexOfCurrentTime(hourlyTime);
             JSONArray hourlyTemperature = (JSONArray) hourly.get("temperature_2m");
             JSONArray hourlyRelativeHumidity = (JSONArray) hourly.get("relativehumidity_2m");
             JSONArray hourlyDewPoint = (JSONArray) hourly.get("dew_point_2m");
@@ -69,6 +68,8 @@ public class WeatherApi {
             JSONArray dailyWeathercode = (JSONArray) daily.get("weather_code");
             JSONArray dailyRainychance = (JSONArray) daily.get("precipitation_sum");
             JSONArray dailyWindspeed = (JSONArray) daily.get("wind_speed_10m_max");
+            JSONArray dailyUv  = (JSONArray) daily.get("uv_index_max");
+
 
 
 
@@ -82,7 +83,10 @@ public class WeatherApi {
             double pressure = ((Number) current.get("surface_pressure")).doubleValue();
             double windspeed = ((Number) current.get("wind_speed_10m")).doubleValue();
             int weatherCondition = ((Number) current.get("weather_code")).intValue();
-            double dewpoint = (double) hourlyDewPoint.get(index);
+            double dewpoint = (double) hourlyDewPoint.get(1);
+            double visibility = (double) hourlyvisibility.get(1);
+            long rainyChance = (long) hourlyRainychance.get(1);
+            double uv = (double) dailyUv.get(1);
 
 
 // Build the weather JSON data object to be accessed on the frontend
@@ -95,6 +99,10 @@ public class WeatherApi {
             weatherData.put("windspeed", windspeed);
             weatherData.put("weather_condition", weatherCondition);
             weatherData.put("feelslike",feelslike);
+            weatherData.put("dewpoint",dewpoint);
+            weatherData.put("visibility",visibility);
+            weatherData.put("rainyChance",rainyChance);
+            weatherData.put("uv",uv);
 
             return weatherData;
 
