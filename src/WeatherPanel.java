@@ -7,17 +7,23 @@ import java.awt.event.ActionListener;
 import java.util.Objects;
 
 public class WeatherPanel extends JPanel {
-    private JLabel nameLabel;
-    private JLabel temperatureLabel;
-    private JLabel weatherConditionLabel;
-    private JLabel humidityLabel;
-    private JLabel windSpeedLabel;
-    private JLabel timeLabel;
-    private JLabel statusLabel;
-    private JLabel pressureLabel;
-    private JLabel currentLabel;
+    private CustomeLabel nameLabel;
+    private CustomeLabel temperatureLabel;
+    private CustomeLabel weatherConditionLabel;
+    private CustomeLabel humidityLabel;
+    private CustomeLabel windSpeedLabel;
+    private CustomeLabel timeLabel;
+    private CustomeLabel statusLabel;
+    private CustomeLabel pressureLabel;
+    private CustomeLabel currentLabel;
     private JLabel weatherIcon;
     private RoundedPanel currentWeather;
+    private JPanel weatherDetail;
+    private CustomeLabel dewpointLabel;
+    private CustomeLabel visibilityLabel;
+    private CustomeLabel uvLabel;
+    private CustomeLabel rainLabel;
+    private CustomeLabel feelslikeLabel;
 
 
 
@@ -26,43 +32,60 @@ public class WeatherPanel extends JPanel {
         setLayout(null); // 8 rows, 1 column, spacing of 10
         setBackground(Color.cyan);
         // Initialize labels for weather information
-        nameLabel = new JLabel("Country: " + name);
-        temperatureLabel = new JLabel("Temperature: ");
-        weatherConditionLabel = new JLabel("Weather Condition: ");
-        humidityLabel = new JLabel("Humidity: ");
-        windSpeedLabel = new JLabel("Wind Speed: ");
-        timeLabel = new JLabel("");
-        statusLabel = new JLabel("Day/Night: ");
-        pressureLabel = new JLabel("Pressure: ");
-        currentLabel = new JLabel("Current weather");
+        nameLabel = new CustomeLabel(15, 10, 10, 200, 20, Font.PLAIN, "Country: " + name);
+        temperatureLabel = new CustomeLabel(40, 100, 72, 200, 40, Font.BOLD, "Temperature: ");
+        weatherConditionLabel = new CustomeLabel(20, 100, 120, 300, 25, Font.PLAIN, "Weather Condition: ");
         weatherIcon = new JLabel();
+        weatherIcon.setBounds(10, 65, 80, 80);
+        timeLabel = new CustomeLabel(12, 10, 30, 200, 12, Font.PLAIN, "");
+        statusLabel = new CustomeLabel(15, 100, 240, 200, 20, Font.PLAIN, "Day/Night: ");
+        // detail Panel component
+        pressureLabel = new CustomeLabel(11, 100, 280, 200, 30, Font.BOLD, "Pressure: ");
+        humidityLabel = new CustomeLabel(11, 100, 160, 200, 30, Font.BOLD, "Humidity: ");
+        windSpeedLabel = new CustomeLabel(11, 100, 200, 200, 30, Font.BOLD, "Wind Speed: ");
+        dewpointLabel = new CustomeLabel(11, 100, 240, 200, 30, Font.BOLD, "Dew Point: ");
+        visibilityLabel = new CustomeLabel(11, 100, 280, 200, 30, Font.BOLD, "Visibility: ");
+        uvLabel = new CustomeLabel(11, 100, 320, 200, 30, Font.BOLD, "UV Index: ");
+        rainLabel = new CustomeLabel(11, 100, 360, 200, 30, Font.BOLD, "Rain: ");
+        feelslikeLabel = new CustomeLabel(11, 100, 400, 200, 30, Font.BOLD, "Feels Like: ");
 
-        // current panel
-        currentWeather  = new RoundedPanel(20,Color.white);
-        currentWeather.setBackground(Color.white);
-        currentWeather.setBounds(100,70,300,300);//set position for panel
-        currentWeather.setLayout(null);// set layout null
-        currentWeather.setBorder(new EmptyBorder(20, 20, 20, 20)); // set padding 20px
-        // Add labels and button to the panel
+
+
+
+        // Set up current weather panel
+        currentWeather = new RoundedPanel(20, Color.white);
+        currentWeather.setBounds(100, 70, 300, 300);
+        currentWeather.setLayout(null);
+        currentWeather.setBorder(new EmptyBorder(20, 20, 20, 20));
+        // Set up for detailWeather
+        weatherDetail  = new JPanel();
+
+        weatherDetail.setBackground(Color.white);
+        weatherDetail.setBounds(10,180,280,100);
+        weatherDetail.setLayout(new GridLayout(2, 4, 10, 5));
+        // Title label
+        currentLabel = new CustomeLabel(15, 10, 10, 200, 20, Font.BOLD, "Current weather");
+
+        // Add labels and icon to the current weather panel
+        currentWeather.add(weatherDetail);
         currentWeather.add(currentLabel);
-        currentLabel.setFont(new Font("Default", Font.BOLD, 15));
-        currentLabel.setBounds(10,10,200,20);
         currentWeather.add(timeLabel);
-        timeLabel.setFont(new Font("Default", Font.PLAIN, 12));
-        timeLabel.setForeground(Color.GRAY);
-        timeLabel.setBounds(10,30,200,12);
-        weatherIcon.setBounds(10,65,80,80);
-        temperatureLabel.setBounds(100,72,200,40);
-        temperatureLabel.setFont(new Font("Default",Font.BOLD,40));
-        weatherConditionLabel.setBounds(100,120,300,20);
-        weatherConditionLabel.setFont(new Font("Default",Font.PLAIN,20));
         currentWeather.add(weatherIcon);
-        currentWeather.add(statusLabel);
         currentWeather.add(temperatureLabel);
         currentWeather.add(weatherConditionLabel);
-        currentWeather.add(humidityLabel);
-        currentWeather.add(windSpeedLabel);
-        currentWeather.add(pressureLabel);
+        // add coponent for detail weather
+        weatherDetail.add(humidityLabel);
+        weatherDetail.add(windSpeedLabel);
+        weatherDetail.add(pressureLabel);
+        weatherDetail.add(dewpointLabel);
+        weatherDetail.add(visibilityLabel);
+        weatherDetail.add(feelslikeLabel);
+        weatherDetail.add(rainLabel);
+        weatherDetail.add(uvLabel);
+
+
+
+        // Add the current weather panel to WeatherPanel
         add(currentWeather);
 
         // Set action to fetch and display weather data on button click
@@ -81,16 +104,21 @@ public class WeatherPanel extends JPanel {
             nameLabel.setText("Country: " + name);
             String fullTime = (String) weatherData.get("time"); // Get the time string from the JSON
             String time = fullTime.substring(11); // Extract the time part
-            timeLabel.setText("" + time); // Set the label text
+            timeLabel.setText(time);  // set current time
             statusLabel.setText("Day/Night: " + ((Boolean) weatherData.get("status") ? "Day" : "Night"));
-            temperatureLabel.setText("" + weatherData.get("temperature"));
-            int weatherCode = (int) weatherData.get("weather_condition");
-            weatherConditionLabel.setText(getWeatherDescription(weatherCode));
-            weatherIcon.setIcon(new ImageIcon(Objects.requireNonNull(WeatherPanel.class.getResource("/Assets/cloudy.png"))));
+            temperatureLabel.setText("" + weatherData.get("temperature")); // set current temperature
+            int weatherCode = (int) weatherData.get("weather_condition"); // get condition base on weather code
+            weatherConditionLabel.setText(getWeatherDescription(weatherCode)); // set weather condition
+            weatherIcon.setIcon(new ImageIcon(Objects.requireNonNull(WeatherPanel.class.getResource("/Assets/cloudy.png")))); // set icon for current panel
 
-            humidityLabel.setText("Humidity: " + weatherData.get("humidity") + "%");
-            windSpeedLabel.setText("Wind Speed: " + weatherData.get("windspeed") + " km/h");
-            pressureLabel.setText("Pressure: " + weatherData.get("pressure") + " hPa");
+            humidityLabel.twoRowDisplay("Humidity",weatherData.get("humidity"),"%"); // set current humid value
+            windSpeedLabel.twoRowDisplay("Wind speed",weatherData.get("windspeed"),"km/h"); // set current wind speed
+            pressureLabel.twoRowDisplay("Pressure",weatherData.get("pressure"),"hPa"); // set current pressure
+            dewpointLabel.twoRowDisplay("Dew Point", weatherData.get("dewpoint"), "°C");
+            visibilityLabel.twoRowDisplay("Visibility", weatherData.get("visibility"), "km");
+            feelslikeLabel.twoRowDisplay("Feels Like", weatherData.get("feelslike"), "°C");
+            rainLabel.twoRowDisplay("Rainy Sum", weatherData.get("rainyChance"), "mm");
+            uvLabel.twoRowDisplay("UV Index", weatherData.get("uv"), "");
         } else {
             // Display error message if data couldn't be fetched
             timeLabel.setText("Time: Data not available");
