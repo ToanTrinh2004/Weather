@@ -84,7 +84,7 @@ public class WeatherApi {
             double windspeed = ((Number) current.get("wind_speed_10m")).doubleValue();
             int weatherCondition = ((Number) current.get("weather_code")).intValue();
             double dewpoint = (double) hourlyDewPoint.get(1);
-            double visibility = (double) hourlyvisibility.get(1);
+            double visibility = (double) hourlyvisibility.get(1) /1000;
             long rainyChance = (long) hourlyRainychance.get(1);
             double uv = (double) dailyUv.get(1);
 
