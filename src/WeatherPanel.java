@@ -1,29 +1,40 @@
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class WeatherPanel extends JPanel {
-    private CustomeLabel nameLabel;
-    private CustomeLabel temperatureLabel;
-    private CustomeLabel weatherConditionLabel;
-    private CustomeLabel humidityLabel;
-    private CustomeLabel windSpeedLabel;
-    private CustomeLabel timeLabel;
-    private CustomeLabel statusLabel;
-    private CustomeLabel pressureLabel;
-    private CustomeLabel currentLabel;
-    private JLabel weatherIcon;
-    private RoundedPanel currentWeather;
-    private JPanel weatherDetail;
-    private CustomeLabel dewpointLabel;
-    private CustomeLabel visibilityLabel;
-    private CustomeLabel uvLabel;
-    private CustomeLabel rainLabel;
-    private CustomeLabel feelslikeLabel;
+    private boolean status = true;
+    private final CustomeLabel nameLabel;
+    private final CustomeLabel temperatureLabel;
+    private final CustomeLabel weatherConditionLabel;
+    private final CustomeLabel humidityLabel;
+    private final CustomeLabel windSpeedLabel;
+    private final CustomeLabel timeLabel;
+    private final CustomeLabel statusLabel;
+    private final CustomeLabel pressureLabel;
+    private final CustomeLabel currentLabel;
+    private final JLabel weatherIcon;
+    private final RoundedPanel currentWeather;
+    private final JPanel weatherDetail;
+    private final CustomeLabel dewpointLabel;
+    private final CustomeLabel visibilityLabel;
+    private final CustomeLabel uvLabel;
+    private final CustomeLabel rainLabel;
+    private final CustomeLabel feelslikeLabel;
+    private ArrayList<String> dailyDays = new ArrayList<>();
+    private ArrayList<Integer> dailyMaxTmp = new ArrayList<>();
+    private ArrayList<Integer> dailyMinTmp = new ArrayList<>();
+    private ArrayList<String> dailyCondition = new ArrayList<>();
+    private ArrayList<Double> dailyRainyChance = new ArrayList<>();
+    private ArrayList<DailyButton> dailyButtons = new ArrayList<>();
+
+
 
 
 
@@ -54,7 +65,7 @@ public class WeatherPanel extends JPanel {
 
         // Set up current weather panel
         currentWeather = new RoundedPanel(20, Color.white);
-        currentWeather.setBounds(100, 70, 300, 300);
+        currentWeather.setBounds(150, 70, 300, 300);
         currentWeather.setLayout(null);
         currentWeather.setBorder(new EmptyBorder(20, 20, 20, 20));
         // Set up for detailWeather
@@ -87,13 +98,38 @@ public class WeatherPanel extends JPanel {
 
         // Add the current weather panel to WeatherPanel
         add(currentWeather);
+        // Initial Daily array list
+        dailyDays = new ArrayList<>();
+        dailyMaxTmp = new ArrayList<>();
+        dailyMinTmp = new ArrayList<>();
+        dailyCondition = new ArrayList<>();
+        dailyRainyChance = new ArrayList<>();
+        dailyButtons = new ArrayList<>();
+        DailyPanel dailypanel = new DailyPanel();
+        dailypanel.setBounds(150,400,970,100);
+        dailypanel.setOpaque(false);
+        add(dailypanel);
+        try {
+            for (int i = 0; i < 5; i++) {
+                DailyButton b = new DailyButton();
+                dailyButtons.add(b);
+                dailypanel.add(b);
+            }
 
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("Index out of bounds: " + e.getMessage());
+        } catch (Exception e) {
+            System.out.println("An error occurred: " + e.getMessage());
+        }
         // Set action to fetch and display weather data on button click
-
-
         // Initial load of weather data
         fetchAndDisplayWeatherData(latitude, longitude, name);
+
+
+
+
     }
+
 
     // Method to fetch and display weather data
     private void fetchAndDisplayWeatherData(double latitude, double longitude, String name) {
@@ -105,8 +141,9 @@ public class WeatherPanel extends JPanel {
             String fullTime = (String) weatherData.get("time"); // Get the time string from the JSON
             String time = fullTime.substring(11); // Extract the time part
             timeLabel.setText(time);  // set current time
-            statusLabel.setText("Day/Night: " + ((Boolean) weatherData.get("status") ? "Day" : "Night"));
-            temperatureLabel.setText("" + weatherData.get("temperature")); // set current temperature
+            boolean status = ((boolean) weatherData.get("status"));
+            setPanelBackground(status);
+            temperatureLabel.setText(String.valueOf(weatherData.get("temperature"))); // set current temperature
             int weatherCode = (int) weatherData.get("weather_condition"); // get condition base on weather code
             weatherConditionLabel.setText(getWeatherDescription(weatherCode)); // set weather condition
             weatherIcon.setIcon(new ImageIcon(Objects.requireNonNull(WeatherPanel.class.getResource("/Assets/cloudy.png")))); // set icon for current panel
@@ -119,6 +156,23 @@ public class WeatherPanel extends JPanel {
             feelslikeLabel.twoRowDisplay("Feels Like", weatherData.get("feelslike"), "°C");
             rainLabel.twoRowDisplay("Rainy Sum", weatherData.get("rainyChance"), "mm");
             uvLabel.twoRowDisplay("UV Index", weatherData.get("uv"), "");
+            // daily
+            JSONArray dailyTimeArray = (JSONArray) weatherData.get("DailyTime");
+            JSONArray dailyMaxTmpArray = (JSONArray) weatherData.get("DailyMaxTemperature");// Assuming it's a JSONArray
+            JSONArray dailyMinTmpArray = (JSONArray) weatherData.get("DailyMinTemperature");
+            JSONArray dailyWeatherCode = (JSONArray) weatherData.get("DailyWeatherCode");
+            JSONArray dailyRainyArray = (JSONArray) weatherData.get("DailyRainyChance");
+            for (int i = 0; i < 5; i++) {
+                String days = dailyTimeArray.get(i).toString();
+                int maxtmp = (int) Math.round((double) dailyMaxTmpArray.get(i));
+                int mintmp = (int) Math.round((double) dailyMinTmpArray.get(i));
+                int code = 1;
+                double chance = (double) dailyRainyArray.get(i);
+                dailyButtons.get(i).fetchData(maxtmp,mintmp,days,chance,getWeatherDescription(code));
+            }
+            dailyButtons.get(0).handleClick();
+
+
         } else {
             // Display error message if data couldn't be fetched
             timeLabel.setText("Time: Data not available");
@@ -135,6 +189,14 @@ public class WeatherPanel extends JPanel {
     public void updateWeatherPanel(double newLatitude, double newLongitude, String newName) {
         nameLabel.setText("Country: " + newName);
         fetchAndDisplayWeatherData(newLatitude, newLongitude, newName);
+    }
+    public void setPanelBackground(boolean status){
+        if(status){
+            setBackground(Color.decode("#C7FDFF"));
+        }else {
+            setBackground(Color.decode("#2E06A1"));
+        }
+
     }
     public static String getWeatherDescription(int code) {
         switch (code) {
