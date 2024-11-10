@@ -14,7 +14,11 @@ public class LocationNavBar extends JPanel {
 
         setBounds(0, 50, 1920, 50); // Full width
         setBackground(Color.blue);
-        setLayout(new FlowLayout(FlowLayout.LEFT)); // Layout for horizontal buttons
+        setBorder(BorderFactory.createEmptyBorder(0, 100, 0, 100)); // Padding of 100 (left and right)
+
+        // Use FlowLayout with CENTER alignment, and also set some gap between buttons
+        FlowLayout flowLayout = new FlowLayout(FlowLayout.LEFT, 10, 10);  // Horizontal and vertical gap of 10
+        setLayout(flowLayout);
 
         refreshButtons(); // Initial load of buttons
     }
@@ -23,10 +27,8 @@ public class LocationNavBar extends JPanel {
     public void refreshButtons() {
         removeAll(); // Clear existing buttons
         for (WeatherData location : locationList) {
-            JButton locationButton = new JButton(location.getName());
-            locationButton.setForeground(Color.white);
-            locationButton.setBackground(Color.blue);
-            locationButton.setFocusPainted(false); // Remove focus border
+            // Use LocationButton instead of the regular JButton
+            LocationButton locationButton = new LocationButton(location.getName());
 
             // Add action listener to update WeatherPanel on button click
             locationButton.addActionListener(new ActionListener() {
