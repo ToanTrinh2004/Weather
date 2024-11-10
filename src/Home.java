@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -25,8 +26,12 @@ public class Home extends JFrame {
 
         // Create a layered pane
         JLayeredPane layeredPane = new JLayeredPane();
-        layeredPane.setBounds(0, 0, 1920, 1080);
-        add(layeredPane);
+        layeredPane.setPreferredSize(new Dimension(1920, 2000)); // Set height for scrolling
+        JScrollPane scrollPane = new JScrollPane(layeredPane);
+        scrollPane.setBounds(0, 0, 1920, 1080); // Set scroll pane size
+
+        // Add the JScrollPane to the JFrame
+        add(scrollPane);
 
         // Add Header to the layered pane
         Home_Header header = new Home_Header(this);
@@ -47,7 +52,6 @@ public class Home extends JFrame {
         weatherPanel = new WeatherPanel(latestLocation.getLat(), latestLocation.getLon(), latestLocation.getName());
         weatherPanel.setBounds(0, 100, 1920, 800); // Set the position and size of the weather panel
         layeredPane.add(weatherPanel, JLayeredPane.DEFAULT_LAYER);
-
         setVisible(true);
     }
 
