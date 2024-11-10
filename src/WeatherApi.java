@@ -6,6 +6,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Scanner;
 public class WeatherApi {
     // Your existing getLocationData method here
@@ -17,7 +18,7 @@ public class WeatherApi {
                 "latitude=" + latitude + "&longitude=" + longitude +
                 "&current=temperature_2m,relative_humidity_2m,is_day,weather_code,surface_pressure,wind_speed_10m,apparent_temperature&hourly" +
                 "=temperature_2m,relative_humidity_2m,dew_point_2m,weather_code,visibility,precipitation_probability," +
-                "wind_speed_10m&daily=weather_code,temperature_2m_max,temperature_2m_min,uv_index_max,precipitation_sum,wind_speed_10m_max&timezone=auto";
+                "wind_speed_10m&daily=weather_code,temperature_2m_max,temperature_2m_min,uv_index_max,precipitation_sum,wind_speed_10m_max&timezone=auto&forecast_days=14";
 
         try{
             // call api and get response
@@ -58,11 +59,12 @@ public class WeatherApi {
             JSONArray hourlyDewPoint = (JSONArray) hourly.get("dew_point_2m");
             JSONArray hourlyRainychance = (JSONArray) hourly.get("precipitation_probability");
             JSONArray hourlyWeathercode = (JSONArray) hourly.get("weather_code");
-            JSONArray hourlypressure = (JSONArray) hourly.get("surface_pressure");
-            JSONArray hourlyvisibility = (JSONArray) hourly.get("visibility");
-            JSONArray hourlywindspeed = (JSONArray) hourly.get("wind_speed_10m");
+            JSONArray hourlyPressure = (JSONArray) hourly.get("surface_pressure");
+            JSONArray hourlyVisibility = (JSONArray) hourly.get("visibility");
+            JSONArray hourlyWindspeed = (JSONArray) hourly.get("wind_speed_10m");
             // daily data
             JSONObject daily = (JSONObject) resultJsonObj.get("daily");
+            JSONArray dailyTime = (JSONArray) daily.get("time");
             JSONArray dailyMaxTemperature = (JSONArray) daily.get("temperature_2m_max");
             JSONArray dailyMinTemperature = (JSONArray) daily.get("temperature_2m_min");
             JSONArray dailyWeathercode = (JSONArray) daily.get("weather_code");
@@ -84,7 +86,7 @@ public class WeatherApi {
             double windspeed = ((Number) current.get("wind_speed_10m")).doubleValue();
             int weatherCondition = ((Number) current.get("weather_code")).intValue();
             double dewpoint = (double) hourlyDewPoint.get(1);
-            double visibility = (double) hourlyvisibility.get(1) /1000;
+            double visibility = (double) hourlyVisibility.get(1) /1000;
             long rainyChance = (long) hourlyRainychance.get(1);
             double uv = (double) dailyUv.get(1);
 
@@ -103,6 +105,26 @@ public class WeatherApi {
             weatherData.put("visibility",visibility);
             weatherData.put("rainyChance",rainyChance);
             weatherData.put("uv",uv);
+            // Hourly data
+            weatherData.put("HourlyTime", hourlyTime); // Time for each hour
+            weatherData.put("HourlyTemperature", hourlyTemperature); // Temperature for each hour
+            weatherData.put("HourlyHumidity", hourlyRelativeHumidity); // Humidity for each hour
+            weatherData.put("HourlyDewPoint", hourlyDewPoint); // Dewpoint for each hour
+            weatherData.put("HourlyRainyChance", hourlyRainychance); // Precipitation probability for each hour
+            weatherData.put("HourlyWeatherCode", hourlyWeathercode); // Weather condition for each hour
+            weatherData.put("HourlyPressure", hourlyPressure); // Surface pressure for each hour
+            weatherData.put("HourlyVisibility", hourlyVisibility); // Visibility for each hour
+            weatherData.put("HourlyWindspeed", hourlyWindspeed); // Wind speed for each hour
+
+// Daily data
+            weatherData.put("DailyMaxTemperature", dailyMaxTemperature); // Max temperature for each day
+            weatherData.put("DailyMinTemperature", dailyMinTemperature); // Min temperature for each day
+            weatherData.put("DailyWeatherCode", dailyWeathercode); // Weather condition for each day
+            weatherData.put("DailyRainyChance", dailyRainychance); // Precipitation sum for each day
+            weatherData.put("DailyWindspeed", dailyWindspeed); // Max wind speed for each day
+            weatherData.put("DailyUv", dailyUv); // UV index for each day
+            weatherData.put("DailyTime",dailyTime);
+
 
             return weatherData;
 
@@ -161,6 +183,9 @@ public class WeatherApi {
         // couldn't find location
         return null;
     }
+    // Function to convert a JSONArray to ArrayList<String> based on a specific key
+
+
 
     private static HttpURLConnection fetchApiResponse(String urlString){
         try{
