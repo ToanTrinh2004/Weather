@@ -1,10 +1,10 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class CustomeLabel extends JLabel {
+public class CustomLabel extends JLabel {
 
 
-    public  CustomeLabel(int size, int x, int y, int w, int h, int fontWeight,String t){
+    public CustomLabel(int size, int x, int y, int w, int h, int fontWeight, String t){
         setFont(new Font("Default",fontWeight, size));
         setBounds(x,y,w,h);
         setText(t);
