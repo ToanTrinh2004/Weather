@@ -13,7 +13,7 @@ public class LocationNavBar extends JPanel {
         this.homeFrame = homeFrame;
 
         setBounds(0, 50, 1920, 50); // Full width
-        setBackground(Color.blue);
+        setBackground(Color.decode("#DCE0FA"));
         setBorder(BorderFactory.createEmptyBorder(0, 100, 0, 100)); // Padding of 100 (left and right)
 
         // Use FlowLayout with CENTER alignment, and also set some gap between buttons
