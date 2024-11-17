@@ -3,30 +3,28 @@ import org.json.simple.JSONObject;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Objects;
 
 public class WeatherPanel extends JPanel {
     private boolean status = true;
-    private final CustomeLabel nameLabel;
-    private final CustomeLabel temperatureLabel;
-    private final CustomeLabel weatherConditionLabel;
-    private final CustomeLabel humidityLabel;
-    private final CustomeLabel windSpeedLabel;
-    private final CustomeLabel timeLabel;
-    private final CustomeLabel statusLabel;
-    private final CustomeLabel pressureLabel;
-    private final CustomeLabel currentLabel;
+    private final CustomLabel nameLabel;
+    private final CustomLabel temperatureLabel;
+    private final CustomLabel weatherConditionLabel;
+    private final CustomLabel humidityLabel;
+    private final CustomLabel windSpeedLabel;
+    private final CustomLabel timeLabel;
+    private final CustomLabel statusLabel;
+    private final CustomLabel pressureLabel;
+    private final CustomLabel currentLabel;
     private final JLabel weatherIcon;
     private final RoundedPanel currentWeather;
     private final JPanel weatherDetail;
-    private final CustomeLabel dewpointLabel;
-    private final CustomeLabel visibilityLabel;
-    private final CustomeLabel uvLabel;
-    private final CustomeLabel rainLabel;
-    private final CustomeLabel feelslikeLabel;
+    private final CustomLabel dewpointLabel;
+    private final CustomLabel visibilityLabel;
+    private final CustomLabel uvLabel;
+    private final CustomLabel rainLabel;
+    private final CustomLabel feelslikeLabel;
     private ArrayList<String> dailyDays = new ArrayList<>();
     private ArrayList<Integer> dailyMaxTmp = new ArrayList<>();
     private ArrayList<Integer> dailyMinTmp = new ArrayList<>();
@@ -41,28 +39,24 @@ public class WeatherPanel extends JPanel {
     // Constructor for the WeatherPanel
     public WeatherPanel(double latitude, double longitude, String name) {
         setLayout(null); // 8 rows, 1 column, spacing of 10
-        setBackground(Color.cyan);
+        setBackground(Color.decode("#D6E7FA"));
         // Initialize labels for weather information
-        nameLabel = new CustomeLabel(15, 10, 10, 200, 20, Font.PLAIN, "Country: " + name);
-        temperatureLabel = new CustomeLabel(40, 100, 72, 200, 40, Font.BOLD, "Temperature: ");
-        weatherConditionLabel = new CustomeLabel(20, 100, 120, 300, 25, Font.PLAIN, "Weather Condition: ");
+        nameLabel = new CustomLabel(15, 10, 10, 200, 20, Font.PLAIN, "Country: " + name);
+        temperatureLabel = new CustomLabel(40, 100, 72, 200, 40, Font.BOLD, "Temperature: ");
+        weatherConditionLabel = new CustomLabel(20, 100, 120, 300, 25, Font.PLAIN, "Weather Condition: ");
         weatherIcon = new JLabel();
         weatherIcon.setBounds(10, 65, 80, 80);
-        timeLabel = new CustomeLabel(12, 10, 30, 200, 12, Font.PLAIN, "");
-        statusLabel = new CustomeLabel(15, 100, 240, 200, 20, Font.PLAIN, "Day/Night: ");
+        timeLabel = new CustomLabel(12, 10, 30, 200, 12, Font.PLAIN, "");
+        statusLabel = new CustomLabel(15, 100, 240, 200, 20, Font.PLAIN, "Day/Night: ");
         // detail Panel component
-        pressureLabel = new CustomeLabel(11, 100, 280, 200, 30, Font.BOLD, "Pressure: ");
-        humidityLabel = new CustomeLabel(11, 100, 160, 200, 30, Font.BOLD, "Humidity: ");
-        windSpeedLabel = new CustomeLabel(11, 100, 200, 200, 30, Font.BOLD, "Wind Speed: ");
-        dewpointLabel = new CustomeLabel(11, 100, 240, 200, 30, Font.BOLD, "Dew Point: ");
-        visibilityLabel = new CustomeLabel(11, 100, 280, 200, 30, Font.BOLD, "Visibility: ");
-        uvLabel = new CustomeLabel(11, 100, 320, 200, 30, Font.BOLD, "UV Index: ");
-        rainLabel = new CustomeLabel(11, 100, 360, 200, 30, Font.BOLD, "Rain: ");
-        feelslikeLabel = new CustomeLabel(11, 100, 400, 200, 30, Font.BOLD, "Feels Like: ");
-
-
-
-
+        pressureLabel = new CustomLabel(11, 100, 280, 200, 30, Font.BOLD, "Pressure: ");
+        humidityLabel = new CustomLabel(11, 100, 160, 200, 30, Font.BOLD, "Humidity: ");
+        windSpeedLabel = new CustomLabel(11, 100, 200, 200, 30, Font.BOLD, "Wind Speed: ");
+        dewpointLabel = new CustomLabel(11, 100, 240, 200, 30, Font.BOLD, "Dew Point: ");
+        visibilityLabel = new CustomLabel(11, 100, 280, 200, 30, Font.BOLD, "Visibility: ");
+        uvLabel = new CustomLabel(11, 100, 320, 200, 30, Font.BOLD, "UV Index: ");
+        rainLabel = new CustomLabel(11, 100, 360, 200, 30, Font.BOLD, "Rain: ");
+        feelslikeLabel = new CustomLabel(11, 100, 400, 200, 30, Font.BOLD, "Feels Like: ");
         // Set up current weather panel
         currentWeather = new RoundedPanel(20, Color.white);
         currentWeather.setBounds(150, 70, 300, 300);
@@ -75,7 +69,7 @@ public class WeatherPanel extends JPanel {
         weatherDetail.setBounds(10,180,280,100);
         weatherDetail.setLayout(new GridLayout(2, 4, 10, 5));
         // Title label
-        currentLabel = new CustomeLabel(15, 10, 10, 200, 20, Font.BOLD, "Current weather");
+        currentLabel = new CustomLabel(15, 10, 10, 200, 20, Font.BOLD, "Current weather");
 
         // Add labels and icon to the current weather panel
         currentWeather.add(weatherDetail);
@@ -123,6 +117,9 @@ public class WeatherPanel extends JPanel {
         }
         // Set action to fetch and display weather data on button click
         // Initial load of weather data
+        WeatherMap m = new WeatherMap();
+        add(m);
+        m.setBounds(500,70,300,300);
         fetchAndDisplayWeatherData(latitude, longitude, name);
 
 
@@ -143,7 +140,7 @@ public class WeatherPanel extends JPanel {
             timeLabel.setText(time);  // set current time
             boolean status = ((boolean) weatherData.get("status"));
             setPanelBackground(status);
-            temperatureLabel.setText(String.valueOf(weatherData.get("temperature"))); // set current temperature
+            temperatureLabel.setText(String.valueOf(weatherData.get("temperature"))+"\u00B0C"); // set current temperature
             int weatherCode = (int) weatherData.get("weather_condition"); // get condition base on weather code
             weatherConditionLabel.setText(getWeatherDescription(weatherCode)); // set weather condition
             weatherIcon.setIcon(new ImageIcon(Objects.requireNonNull(WeatherPanel.class.getResource("/Assets/cloudy.png")))); // set icon for current panel
@@ -192,9 +189,9 @@ public class WeatherPanel extends JPanel {
     }
     public void setPanelBackground(boolean status){
         if(status){
-            setBackground(Color.decode("#C7FDFF"));
+            setBackground(Color.decode("#D6E7FA"));
         }else {
-            setBackground(Color.decode("#2E06A1"));
+            setBackground(Color.decode("#1D375C"));
         }
 
     }
