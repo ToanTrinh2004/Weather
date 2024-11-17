@@ -8,8 +8,9 @@ public class LocationButton extends JButton {
     public LocationButton(String text) {
         super(text);
         setFocusPainted(false); // Remove the focus border
-        setBackground(Color.blue); // Set button background color
-        setForeground(Color.white); // Set text color
+        setBackground(Color.decode("#EBEFFF")); // Set button background color
+        setForeground(Color.BLACK); // Set text color
+        setPreferredSize(new Dimension(150,30));
     }
 
     @Override
