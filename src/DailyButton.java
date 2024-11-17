@@ -1,4 +1,3 @@
-import org.json.simple.JSONObject;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.RoundRectangle2D;
@@ -7,12 +6,12 @@ import java.util.Objects;
 public class DailyButton extends JButton {
     private static DailyButton currentlyClickedButton = null; // Static reference to track the clicked button
 
-    private CustomeLabel Days = new CustomeLabel(15, 20, 10, 100, 15, 1, "");
-    private CustomeLabel MaxTempurature = new CustomeLabel(15, 85, 35, 50, 15, 1, "");
-    private CustomeLabel MinTempurature = new CustomeLabel(15, 85, 55, 50, 15, 1, "");
-    private CustomeLabel WeatherCondition = new CustomeLabel(15, 180, 35, 60, 15, 1, "");
-    private CustomeLabel WeatherRainyChance = new CustomeLabel(15, 180, 55, 50, 15, 1, "");
-    private CustomeLabel WeatherIcon = new CustomeLabel(45, 20, 35, 45, 45, 1, "");
+    private CustomLabel Days = new CustomLabel(15, 20, 10, 100, 15, 1, "");
+    private CustomLabel MaxTempurature = new CustomLabel(15, 85, 35, 50, 15, 1, "");
+    private CustomLabel MinTempurature = new CustomLabel(15, 85, 55, 50, 15, 1, "");
+    private CustomLabel WeatherCondition = new CustomLabel(15, 180, 35, 60, 15, 1, "");
+    private CustomLabel WeatherRainyChance = new CustomLabel(15, 180, 55, 50, 15, 1, "");
+    private CustomLabel WeatherIcon = new CustomLabel(45, 20, 35, 45, 45, 1, "");
 
     private int cornerRadius = 20; // Radius for the corners
     private Dimension normalSize = new Dimension(140, 90); // Normal size
