@@ -2,15 +2,9 @@ import javax.swing.*;
 
 public class AppLauncher {
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable(){
-            @Override
-            public void run(){
-                // display our weather app gui
-                new Home();
-
-//                System.out.println(WeatherApp.getCurrentTime());
-
-            }
+        SwingUtilities.invokeLater(() -> {
+            SetUpFrame frame = new SetUpFrame();
+            frame.setVisible(true);
         });
     }
 }

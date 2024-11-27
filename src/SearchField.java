@@ -87,6 +87,7 @@ public class SearchField extends JPanel {
                         // Retrieve latitude and longitude using selectedIndex
                         double selectedLongitude = longitudes.get(selectedIndex);
                         double selectedLatitude = latitudes.get(selectedIndex);
+                        int index  = Home.locationList.size();
 
                         // Pass latitude and longitude to getWeatherData
                         WeatherApi.getWeatherData(selectedLatitude, selectedLongitude);
@@ -94,6 +95,7 @@ public class SearchField extends JPanel {
                         data.setLat(selectedLatitude);
                         data.setLon(selectedLongitude);
                         data.setName(selectedValue);
+                        data.setIndex(index);
                         Home.locationList.add(data);
                         home.updateWeatherPanelFromLatest();
 

@@ -2,6 +2,7 @@ public class WeatherData {
     public double lon;
     public double lat;
     public String name;
+    public int index;
 
     public double getLon() {
         return lon;
@@ -25,5 +26,13 @@ public class WeatherData {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getIndex() {
+        return index;
+    }
+
+    public void setIndex(int index) {
+        this.index = index;
     }
 }

@@ -1,3 +1,5 @@
+import Models.DailyData;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.RoundRectangle2D;
@@ -9,13 +11,13 @@ public class DailyButton extends JButton {
     private CustomLabel Days = new CustomLabel(15, 20, 10, 100, 15, 1, "");
     private CustomLabel MaxTempurature = new CustomLabel(15, 85, 35, 50, 15, 1, "");
     private CustomLabel MinTempurature = new CustomLabel(15, 85, 55, 50, 15, 1, "");
-    private CustomLabel WeatherCondition = new CustomLabel(15, 180, 35, 60, 15, 1, "");
-    private CustomLabel WeatherRainyChance = new CustomLabel(15, 180, 55, 50, 15, 1, "");
+    private CustomLabel WeatherCondition = new CustomLabel(15, 150, 35, 120, 15, 1, "");
+    private CustomLabel WeatherRainyChance = new CustomLabel(15, 150, 55, 50, 15, 1, "");
     private CustomLabel WeatherIcon = new CustomLabel(45, 20, 35, 45, 45, 1, "");
 
     private int cornerRadius = 20; // Radius for the corners
     private Dimension normalSize = new Dimension(140, 90); // Normal size
-    private Dimension clickedSize = new Dimension(260, 90); // Clicked size
+    private Dimension clickedSize = new Dimension(280, 90); // Clicked size
 
     public DailyButton() {
         setLayout(null);
@@ -27,13 +29,13 @@ public class DailyButton extends JButton {
         addActionListener(e -> handleClick());
     }
 
-    public void fetchData(int MaxTmp, int MinTmp, String Time, double chance, String Condition) {
-        MaxTempurature.setText(MaxTmp + "\u00B0C");
-        MinTempurature.setText(MinTmp + "\u00B0C");
-        Days.setText(Time);
-        WeatherRainyChance.setText("" + chance+"%");
+    public void fetchData(DailyData data) {
+        MaxTempurature.setText(data.getMaxTmp() + "\u00B0C");
+        MinTempurature.setText(data.getMinTmp() + "\u00B0C");
+        Days.setText(data.getTime());
+        WeatherRainyChance.setText("" + data.getChance()+"%");
         WeatherIcon.setIcon(new ImageIcon(Objects.requireNonNull(WeatherPanel.class.getResource("/Assets/sunny_daily.png"))));
-        WeatherCondition.setText("" + Condition);
+        WeatherCondition.setText("" + data.getCondition());
         add(MaxTempurature);
         add(MinTempurature);
         add(Days);
