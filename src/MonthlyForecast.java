@@ -1,86 +1,110 @@
 import javax.swing.*;
 import java.awt.*;
+import java.io.FileReader;
 import java.time.LocalDate;
 import java.time.YearMonth;
-import java.time.format.DateTimeFormatter;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 
 public class MonthlyForecast extends JFrame {
     private JPanel calendarPanel;
     private LocalDate currentDate;
-    private final Map<String, Color> weatherColors;
-    private final String[] weatherIcons = {"☀", "⛅", "☁", "🌧", "⛈", "❄"};
+    private JButton selectedMonthButton;
+    private List<WeatherData> weatherDataList;
 
     public MonthlyForecast() {
         currentDate = LocalDate.now();
-        weatherColors = initializeWeatherColors();
+        weatherDataList = loadWeatherData();
 
         setTitle("Weather Forecast");
-        setSize(1000, 700);
+        setSize(800, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout(10, 10));
-
-        setBackground(new Color(18, 18, 18));
 
         add(createHeader(), BorderLayout.NORTH);
         add(createMainContent(), BorderLayout.CENTER);
 
-        ((JPanel)getContentPane()).setBorder(
-                BorderFactory.createEmptyBorder(20, 20, 20, 20)
+        ((JPanel) getContentPane()).setBorder(
+                BorderFactory.createEmptyBorder(10, 10, 10, 10)
         );
 
         setLocationRelativeTo(null);
         setVisible(true);
     }
 
-    private Map<String, Color> initializeWeatherColors() {
-        Map<String, Color> colors = new HashMap<>();
-        colors.put("☀", new Color(255, 193, 7));  // Sunny
-        colors.put("⛅", new Color(158, 158, 158));  // Partly Cloudy
-        colors.put("☁", new Color(96, 125, 139));  // Cloudy
-        colors.put("🌧", new Color(3, 169, 244));  // Rain
-        colors.put("⛈", new Color(63, 81, 181));  // Storm
-        colors.put("❄", new Color(176, 190, 197));  // Snow
-        return colors;
+    private List<WeatherData> loadWeatherData() {
+        List<WeatherData> dataList = new ArrayList<>();
+        JSONParser parser = new JSONParser();
+        try {
+            Object obj = parser.parse(new FileReader("/src/MonthlyForecastData.json"));
+            JSONArray jsonArray = (JSONArray) obj;
+
+            for (Object item : jsonArray) {
+                JSONObject jsonObject = (JSONObject) item;
+                dataList.add(new WeatherData(
+                        LocalDate.parse((String) jsonObject.get("date")),
+                        (String) jsonObject.get("weather"),
+                        ((Long) jsonObject.get("highTemp")).intValue(),
+                        ((Long) jsonObject.get("lowTemp")).intValue()
+                ));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this,
+                    "Error loading weather data",
+                    "Data Error",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+        return dataList;
     }
 
     private JPanel createHeader() {
         JPanel header = new JPanel(new BorderLayout());
         header.setOpaque(false);
 
-        JPanel monthPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 15, 5));
-        monthPanel.setOpaque(false);
-
-        JButton prevMonth = createStyledButton("←");
-        JLabel monthLabel = new JLabel(
-                currentDate.format(DateTimeFormatter.ofPattern("MMMM yyyy")),
+        JLabel yearLabel = new JLabel(
+                String.valueOf(currentDate.getYear()),
                 SwingConstants.CENTER
         );
-        monthLabel.setForeground(Color.BLACK);
-        monthLabel.setFont(new Font("Arial", Font.BOLD, 20));
-        JButton nextMonth = createStyledButton("→");
+        yearLabel.setForeground(Color.BLACK);
+        yearLabel.setFont(new Font("Arial", Font.BOLD, 20));
 
-        prevMonth.addActionListener(e -> {
-            currentDate = currentDate.minusMonths(1);
-            updateCalendar();
-            monthLabel.setText(currentDate.format(
-                    DateTimeFormatter.ofPattern("MMMM yyyy"))
-            );
-        });
+        JPanel monthPanel = new JPanel(new GridLayout(1, 6, 5, 5));
+        monthPanel.setOpaque(false);
 
-        nextMonth.addActionListener(e -> {
-            currentDate = currentDate.plusMonths(1);
-            updateCalendar();
-            monthLabel.setText(currentDate.format(
-                    DateTimeFormatter.ofPattern("MMMM yyyy"))
-            );
-        });
+        String[] months = {
+                "January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December"
+        };
 
-        monthPanel.add(prevMonth);
-        monthPanel.add(monthLabel);
-        monthPanel.add(nextMonth);
+        int currentMonth = currentDate.getMonthValue();
+        for (int i = 0; i < 12; i++) {
+            int monthIndex = (currentMonth - 1 + i) % 12 + 1;
+            String monthName = months[monthIndex - 1];
+            JButton monthButton = createStyledButton(monthName);
+            int finalMonthIndex = monthIndex;
+            monthButton.addActionListener(e -> {
+                if (selectedMonthButton != null) {
+                    selectedMonthButton.setBackground(new Color(250, 250, 250));
+                }
+                selectedMonthButton = monthButton;
+                currentDate = currentDate.withMonth(finalMonthIndex);
+                updateCalendar();
 
+                selectedMonthButton.setBackground(new Color(210, 210, 210));
+            });
+            monthPanel.add(monthButton);
+
+            if (monthIndex == currentMonth) {
+                selectedMonthButton = monthButton;
+                monthButton.setBackground(new Color(210, 210, 210));
+            }
+        }
+
+        header.add(yearLabel, BorderLayout.NORTH);
         header.add(monthPanel, BorderLayout.CENTER);
 
         return header;
@@ -89,18 +113,27 @@ public class MonthlyForecast extends JFrame {
     private JButton createStyledButton(String text) {
         JButton button = new JButton(text);
         button.setForeground(Color.BLACK);
-        button.setBackground(new Color(45, 45, 45));
-        button.setFont(new Font("Arial", Font.BOLD, 16));
-        button.setBorder(BorderFactory.createEmptyBorder(5, 15, 5, 15));
+        button.setBackground(new Color(250, 250, 250));
+        button.setFont(new Font("Arial", Font.BOLD, 14));
+
+        button.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+
         button.setFocusPainted(false);
+        button.setContentAreaFilled(false);
+        button.setOpaque(true);
+
         button.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                button.setBackground(new Color(60, 60, 60));
+                button.setBackground(new Color(230, 230, 230));
             }
+
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                button.setBackground(new Color(45, 45, 45));
+                if (button != selectedMonthButton) {
+                    button.setBackground(new Color(250, 250, 250));
+                }
             }
         });
+
         return button;
     }
 
@@ -119,8 +152,6 @@ public class MonthlyForecast extends JFrame {
         }
 
         calendarPanel = new JPanel(new GridLayout(0, 7, 10, 10));
-        calendarPanel.setOpaque(false);
-
         mainPanel.add(weekDays, BorderLayout.NORTH);
         mainPanel.add(calendarPanel, BorderLayout.CENTER);
 
@@ -140,11 +171,8 @@ public class MonthlyForecast extends JFrame {
         }
 
         for (int i = 1; i <= yearMonth.lengthOfMonth(); i++) {
-            calendarPanel.add(createDayCell(LocalDate.of(
-                    currentDate.getYear(),
-                    currentDate.getMonth(),
-                    i
-            )));
+            LocalDate date = LocalDate.of(currentDate.getYear(), currentDate.getMonth(), i);
+            calendarPanel.add(createDayCell(date));
         }
 
         revalidate();
@@ -166,15 +194,23 @@ public class MonthlyForecast extends JFrame {
         dateLabel.setForeground(Color.BLACK);
         dateLabel.setFont(new Font("Arial", Font.BOLD, 16));
 
-        String weatherIcon = weatherIcons[(int)(Math.random() * weatherIcons.length)];
-        JLabel iconLabel = new JLabel(weatherIcon, SwingConstants.CENTER);
-        iconLabel.setFont(new Font("Arial", Font.PLAIN, 32));
-        iconLabel.setForeground(weatherColors.get(weatherIcon));
+        WeatherData dayData = weatherDataList.stream()
+                .filter(wd -> wd.date.equals(date))
+                .findFirst()
+                .orElse(new WeatherData(date, "clear-day.png", 60, 45));
 
-        int highTemp = 60 + (int)(Math.random() * 30);
-        int lowTemp = highTemp - 10 - (int)(Math.random() * 10);
+        String iconPath = "/src/Assets/" + dayData.weather; // Đường dẫn thư mục biểu tượng
+        ImageIcon weatherIcon = new ImageIcon(iconPath);
+
+        // Kiểm tra và điều chỉnh kích thước biểu tượng (nếu cần)
+        Image img = weatherIcon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
+        weatherIcon = new ImageIcon(img);
+
+        JLabel iconLabel = new JLabel(weatherIcon);
+        iconLabel.setHorizontalAlignment(SwingConstants.CENTER);
+
         JLabel tempLabel = new JLabel(
-                highTemp + "°/" + lowTemp + "°",
+                dayData.highTemp + "°/" + dayData.lowTemp + "°",
                 SwingConstants.CENTER
         );
         tempLabel.setForeground(Color.BLACK);
@@ -185,21 +221,27 @@ public class MonthlyForecast extends JFrame {
         cell.add(tempLabel, BorderLayout.SOUTH);
 
         if (date.equals(LocalDate.now())) {
-            cell.setBackground(Color.GRAY);
+            cell.setBackground(new Color(210, 210, 210));
         }
 
         return cell;
     }
 
     public static void main(String[] args) {
-        try {
-            UIManager.setLookAndFeel(
-                    UIManager.getSystemLookAndFeelClassName()
-            );
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        new MonthlyForecast();
+    }
 
-        SwingUtilities.invokeLater(MonthlyForecast::new);
+    static class WeatherData {
+        LocalDate date;
+        String weather;
+        int highTemp;
+        int lowTemp;
+
+        WeatherData(LocalDate date, String weather, int highTemp, int lowTemp) {
+            this.date = date;
+            this.weather = weather;
+            this.highTemp = highTemp;
+            this.lowTemp = lowTemp;
+        }
     }
 }
