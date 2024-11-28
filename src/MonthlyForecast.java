@@ -39,7 +39,7 @@ public class MonthlyForecast extends JFrame {
         List<WeatherData> dataList = new ArrayList<>();
         JSONParser parser = new JSONParser();
         try {
-            Object obj = parser.parse(new FileReader("/src/MonthlyForecastData.json"));
+            Object obj = parser.parse(new FileReader("Weather/src/MonthlyForecastData.json"));
             JSONArray jsonArray = (JSONArray) obj;
 
             for (Object item : jsonArray) {
@@ -199,15 +199,20 @@ public class MonthlyForecast extends JFrame {
                 .findFirst()
                 .orElse(new WeatherData(date, "clear-day.png", 60, 45));
 
-        String iconPath = "/src/Assets/" + dayData.weather; // Đường dẫn thư mục biểu tượng
+        String iconPath = "Weather/src/Assets/" + dayData.weather; // Đường dẫn thư mục biểu tượng
         ImageIcon weatherIcon = new ImageIcon(iconPath);
 
-        // Kiểm tra và điều chỉnh kích thước biểu tượng (nếu cần)
-        Image img = weatherIcon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
-        weatherIcon = new ImageIcon(img);
-
-        JLabel iconLabel = new JLabel(weatherIcon);
+        JLabel iconLabel = new JLabel();
         iconLabel.setHorizontalAlignment(SwingConstants.CENTER);
+
+        // Điều chỉnh kích thước icon theo kích thước cell
+        cell.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentResized(java.awt.event.ComponentEvent evt) {
+                int size = Math.min(cell.getWidth(), cell.getHeight()) / 3; // Tỉ lệ icon (1/3 cell)
+                Image img = weatherIcon.getImage().getScaledInstance(size, size, Image.SCALE_SMOOTH);
+                iconLabel.setIcon(new ImageIcon(img));
+            }
+        });
 
         JLabel tempLabel = new JLabel(
                 dayData.highTemp + "°/" + dayData.lowTemp + "°",
