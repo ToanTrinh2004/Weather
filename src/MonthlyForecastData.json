@@ -1,366 +1,2186 @@
 [
-    {"date": "2024-01-01", "weather": "clear-day.png", "highTemp": 50, "lowTemp": 30},
-    {"date": "2024-01-02", "weather": "partly-cloudy-day.png", "highTemp": 48, "lowTemp": 28},
-    {"date": "2024-01-03", "weather": "overcast.png", "highTemp": 46, "lowTemp": 26},
-    {"date": "2024-01-04", "weather": "rain-slight.png", "highTemp": 44, "lowTemp": 24},
-    {"date": "2024-01-05", "weather": "thunderstorms.png", "highTemp": 42, "lowTemp": 22},
-    {"date": "2024-01-06", "weather": "snow-showers-night.png", "highTemp": 40, "lowTemp": 20},
-    {"date": "2024-01-07", "weather": "clear-day.png", "highTemp": 52, "lowTemp": 32},
-    {"date": "2024-01-08", "weather": "partly-cloudy-day.png", "highTemp": 50, "lowTemp": 30},
-    {"date": "2024-01-09", "weather": "overcast.png", "highTemp": 48, "lowTemp": 28},
-    {"date": "2024-01-10", "weather": "rain-slight.png", "highTemp": 46, "lowTemp": 26},
-    {"date": "2024-01-11", "weather": "thunderstorms.png", "highTemp": 44, "lowTemp": 24},
-    {"date": "2024-01-12", "weather": "snow-showers-night.png", "highTemp": 42, "lowTemp": 22},
-    {"date": "2024-01-13", "weather": "clear-day.png", "highTemp": 55, "lowTemp": 35},
-    {"date": "2024-01-14", "weather": "partly-cloudy-day.png", "highTemp": 53, "lowTemp": 33},
-    {"date": "2024-01-15", "weather": "overcast.png", "highTemp": 51, "lowTemp": 31},
-    {"date": "2024-01-16", "weather": "rain-slight.png", "highTemp": 49, "lowTemp": 29},
-    {"date": "2024-01-17", "weather": "thunderstorms.png", "highTemp": 47, "lowTemp": 27},
-    {"date": "2024-01-18", "weather": "snowfall.png", "highTemp": 45, "lowTemp": 25},
-    {"date": "2024-01-19", "weather": "clear-day.png", "highTemp": 58, "lowTemp": 38},
-    {"date": "2024-01-20", "weather": "partly-cloudy-day.png", "highTemp": 56, "lowTemp": 36},
-    {"date": "2024-01-21", "weather": "overcast.png", "highTemp": 54, "lowTemp": 34},
-    {"date": "2024-01-22", "weather": "rain-slight.png", "highTemp": 52, "lowTemp": 32},
-    {"date": "2024-01-23", "weather": "thunderstorms.png", "highTemp": 50, "lowTemp": 30},
-    {"date": "2024-01-24", "weather": "snow-showers-night.png", "highTemp": 48, "lowTemp": 28},
-    {"date": "2024-01-25", "weather": "clear-day.png", "highTemp": 60, "lowTemp": 40},
-    {"date": "2024-01-26", "weather": "partly-cloudy-day.png", "highTemp": 58, "lowTemp": 38},
-    {"date": "2024-01-27", "weather": "overcast.png", "highTemp": 56, "lowTemp": 36},
-    {"date": "2024-01-28", "weather": "rain-slight.png", "highTemp": 54, "lowTemp": 34},
-    {"date": "2024-01-29", "weather": "thunderstorms.png", "highTemp": 52, "lowTemp": 32},
-    {"date": "2024-01-30", "weather": "snowfall.png", "highTemp": 50, "lowTemp": 30},
-    {"date": "2024-01-31", "weather": "clear-day.png", "highTemp": 62, "lowTemp": 42},
-    {"date": "2024-02-01", "weather": "clear-day.png", "highTemp": 55, "lowTemp": 35},
-    {"date": "2024-02-02", "weather": "partly-cloudy-day.png", "highTemp": 53, "lowTemp": 33},
-    {"date": "2024-02-03", "weather": "overcast.png", "highTemp": 51, "lowTemp": 31},
-    {"date": "2024-02-04", "weather": "rain-slight.png", "highTemp": 49, "lowTemp": 29},
-    {"date": "2024-02-05", "weather": "thunderstorms.png", "highTemp": 47, "lowTemp": 27},
-    {"date": "2024-02-06", "weather": "snow-showers-night.png", "highTemp": 45, "lowTemp": 25},
-    {"date": "2024-02-07", "weather": "clear-day.png", "highTemp": 57, "lowTemp": 37},
-    {"date": "2024-02-08", "weather": "partly-cloudy-day.png", "highTemp": 55, "lowTemp": 35},
-    {"date": "2024-02-09", "weather": "overcast.png", "highTemp": 53, "lowTemp": 33},
-    {"date": "2024-02-10", "weather": "rain-slight.png", "highTemp": 51, "lowTemp": 31},
-    {"date": "2024-02-11", "weather": "thunderstorms.png", "highTemp": 49, "lowTemp": 29},
-    {"date": "2024-02-12", "weather": "snow-showers-night.png", "highTemp": 47, "lowTemp": 27},
-    {"date": "2024-02-13", "weather": "clear-day.png", "highTemp": 60, "lowTemp": 40},
-    {"date": "2024-02-14", "weather": "partly-cloudy-day.png", "highTemp": 58, "lowTemp": 38},
-    {"date": "2024-02-15", "weather": "overcast.png", "highTemp": 56, "lowTemp": 36},
-    {"date": "2024-02-16", "weather": "rain-slight.png", "highTemp": 54, "lowTemp": 34},
-    {"date": "2024-02-17", "weather": "thunderstorms.png", "highTemp": 52, "lowTemp": 32},
-    {"date": "2024-02-18", "weather": "snowfall.png", "highTemp": 50, "lowTemp": 30},
-    {"date": "2024-02-19", "weather": "clear-day.png", "highTemp": 62, "lowTemp": 42},
-    {"date": "2024-02-20", "weather": "partly-cloudy-day.png", "highTemp": 60, "lowTemp": 40},
-    {"date": "2024-02-21", "weather": "overcast.png", "highTemp": 58, "lowTemp": 38},
-    {"date": "2024-02-22", "weather": "rain-slight.png", "highTemp": 56, "lowTemp": 36},
-    {"date": "2024-02-23", "weather": "thunderstorms.png", "highTemp": 54, "lowTemp": 34},
-    {"date": "2024-02-24", "weather": "snowfall.png", "highTemp": 52, "lowTemp": 32},
-    {"date": "2024-02-25", "weather": "clear-day.png", "highTemp": 64, "lowTemp": 44},
-    {"date": "2024-02-26", "weather": "partly-cloudy-day.png", "highTemp": 62, "lowTemp": 42},
-    {"date": "2024-02-27", "weather": "overcast.png", "highTemp": 60, "lowTemp": 40},
-    {"date": "2024-02-28", "weather": "rain-slight.png", "highTemp": 58, "lowTemp": 38},
-    {"date": "2024-03-01", "weather": "clear-day.png", "highTemp": 58, "lowTemp": 38},
-    {"date": "2024-03-02", "weather": "partly-cloudy-day.png", "highTemp": 60, "lowTemp": 40},
-    {"date": "2024-03-03", "weather": "overcast.png", "highTemp": 62, "lowTemp": 42},
-    {"date": "2024-03-04", "weather": "rain-slight.png", "highTemp": 64, "lowTemp": 44},
-    {"date": "2024-03-05", "weather": "thunderstorms.png", "highTemp": 66, "lowTemp": 46},
-    {"date": "2024-03-06", "weather": "snow-showers-night.png", "highTemp": 60, "lowTemp": 40},
-    {"date": "2024-03-07", "weather": "clear-day.png", "highTemp": 68, "lowTemp": 48},
-    {"date": "2024-03-08", "weather": "partly-cloudy-day.png", "highTemp": 70, "lowTemp": 50},
-    {"date": "2024-03-09", "weather": "overcast.png", "highTemp": 72, "lowTemp": 52},
-    {"date": "2024-03-10", "weather": "rain-slight.png", "highTemp": 74, "lowTemp": 54},
-    {"date": "2024-03-11", "weather": "thunderstorms.png", "highTemp": 76, "lowTemp": 56},
-    {"date": "2024-03-12", "weather": "snow-showers-night.png", "highTemp": 72, "lowTemp": 52},
-    {"date": "2024-03-13", "weather": "clear-day.png", "highTemp": 78, "lowTemp": 58},
-    {"date": "2024-03-14", "weather": "partly-cloudy-day.png", "highTemp": 80, "lowTemp": 60},
-    {"date": "2024-03-15", "weather": "overcast.png", "highTemp": 82, "lowTemp": 62},
-    {"date": "2024-03-16", "weather": "rain-slight.png", "highTemp": 84, "lowTemp": 64},
-    {"date": "2024-03-17", "weather": "thunderstorms.png", "highTemp": 86, "lowTemp": 66},
-    {"date": "2024-03-18", "weather": "snowfall.png", "highTemp": 82, "lowTemp": 62},
-    {"date": "2024-03-19", "weather": "clear-day.png", "highTemp": 88, "lowTemp": 68},
-    {"date": "2024-03-20", "weather": "partly-cloudy-day.png", "highTemp": 90, "lowTemp": 70},
-    {"date": "2024-03-21", "weather": "overcast.png", "highTemp": 92, "lowTemp": 72},
-    {"date": "2024-03-22", "weather": "rain-slight.png", "highTemp": 94, "lowTemp": 74},
-    {"date": "2024-03-23", "weather": "thunderstorms.png", "highTemp": 96, "lowTemp": 76},
-    {"date": "2024-03-24", "weather": "snowfall.png", "highTemp": 92, "lowTemp": 72},
-    {"date": "2024-03-25", "weather": "clear-day.png", "highTemp": 98, "lowTemp": 78},
-    {"date": "2024-03-26", "weather": "partly-cloudy-day.png", "highTemp": 100, "lowTemp": 80},
-    {"date": "2024-03-27", "weather": "overcast.png", "highTemp": 102, "lowTemp": 82},
-    {"date": "2024-03-28", "weather": "rain-slight.png", "highTemp": 104, "lowTemp": 84},
-    {"date": "2024-03-29", "weather": "thunderstorms.png", "highTemp": 106, "lowTemp": 86},
-    {"date": "2024-03-30", "weather": "snowfall.png", "highTemp": 102, "lowTemp": 82},
-    {"date": "2024-03-31", "weather": "clear-day.png", "highTemp": 108, "lowTemp": 88},
-    {"date": "2024-04-01", "weather": "clear-day.png", "highTemp": 55, "lowTemp": 35},
-    {"date": "2024-04-02", "weather": "partly-cloudy-day.png", "highTemp": 57, "lowTemp": 37},
-    {"date": "2024-04-03", "weather": "overcast.png", "highTemp": 59, "lowTemp": 39},
-    {"date": "2024-04-04", "weather": "rain-slight.png", "highTemp": 61, "lowTemp": 41},
-    {"date": "2024-04-05", "weather": "thunderstorms.png", "highTemp": 63, "lowTemp": 43},
-    {"date": "2024-04-06", "weather": "snow-showers-night.png", "highTemp": 65, "lowTemp": 45},
-    {"date": "2024-04-07", "weather": "clear-day.png", "highTemp": 67, "lowTemp": 47},
-    {"date": "2024-04-08", "weather": "partly-cloudy-day.png", "highTemp": 69, "lowTemp": 49},
-    {"date": "2024-04-09", "weather": "overcast.png", "highTemp": 71, "lowTemp": 51},
-    {"date": "2024-04-10", "weather": "rain-slight.png", "highTemp": 73, "lowTemp": 53},
-    {"date": "2024-04-11", "weather": "thunderstorms.png", "highTemp": 75, "lowTemp": 55},
-    {"date": "2024-04-12", "weather": "snow-showers-night.png", "highTemp": 77, "lowTemp": 57},
-    {"date": "2024-04-13", "weather": "clear-day.png", "highTemp": 79, "lowTemp": 59},
-    {"date": "2024-04-14", "weather": "partly-cloudy-day.png", "highTemp": 81, "lowTemp": 61},
-    {"date": "2024-04-15", "weather": "overcast.png", "highTemp": 83, "lowTemp": 63},
-    {"date": "2024-04-16", "weather": "rain-slight.png", "highTemp": 85, "lowTemp": 65},
-    {"date": "2024-04-17", "weather": "thunderstorms.png", "highTemp": 87, "lowTemp": 67},
-    {"date": "2024-04-18", "weather": "snowfall.png", "highTemp": 89, "lowTemp": 69},
-    {"date": "2024-04-19", "weather": "clear-day.png", "highTemp": 91, "lowTemp": 71},
-    {"date": "2024-04-20", "weather": "partly-cloudy-day.png", "highTemp": 93, "lowTemp": 73},
-    {"date": "2024-04-21", "weather": "overcast.png", "highTemp": 95, "lowTemp": 75},
-    {"date": "2024-04-22", "weather": "rain-slight.png", "highTemp": 97, "lowTemp": 77},
-    {"date": "2024-04-23", "weather": "thunderstorms.png", "highTemp": 99, "lowTemp": 79},
-    {"date": "2024-04-24", "weather": "snowfall.png", "highTemp": 101, "lowTemp": 81},
-    {"date": "2024-04-25", "weather": "clear-day.png", "highTemp": 103, "lowTemp": 83},
-    {"date": "2024-04-26", "weather": "partly-cloudy-day.png", "highTemp": 105, "lowTemp": 85},
-    {"date": "2024-04-27", "weather": "overcast.png", "highTemp": 107, "lowTemp": 87},
-    {"date": "2024-04-28", "weather": "rain-slight.png", "highTemp": 109, "lowTemp": 89},
-    {"date": "2024-04-29", "weather": "thunderstorms.png", "highTemp": 111, "lowTemp": 91},
-    {"date": "2024-04-30", "weather": "snowfall.png", "highTemp": 113, "lowTemp": 93},
-    {"date": "2024-05-01", "weather": "clear-day.png", "highTemp": 60, "lowTemp": 40},
-    {"date": "2024-05-02", "weather": "partly-cloudy-day.png", "highTemp": 62, "lowTemp": 42},
-    {"date": "2024-05-03", "weather": "overcast.png", "highTemp": 64, "lowTemp": 44},
-    {"date": "2024-05-04", "weather": "rain-slight.png", "highTemp": 66, "lowTemp": 46},
-    {"date": "2024-05-05", "weather": "thunderstorms.png", "highTemp": 68, "lowTemp": 48},
-    {"date": "2024-05-06", "weather": "snow-showers-night.png", "highTemp": 70, "lowTemp": 50},
-    {"date": "2024-05-07", "weather": "clear-day.png", "highTemp": 72, "lowTemp": 52},
-    {"date": "2024-05-08", "weather": "partly-cloudy-day.png", "highTemp": 74, "lowTemp": 54},
-    {"date": "2024-05-09", "weather": "overcast.png", "highTemp": 76, "lowTemp": 56},
-    {"date": "2024-05-10", "weather": "rain-slight.png", "highTemp": 78, "lowTemp": 58},
-    {"date": "2024-05-11", "weather": "thunderstorms.png", "highTemp": 80, "lowTemp": 60},
-    {"date": "2024-05-12", "weather": "snow-showers-night.png", "highTemp": 82, "lowTemp": 62},
-    {"date": "2024-05-13", "weather": "clear-day.png", "highTemp": 84, "lowTemp": 64},
-    {"date": "2024-05-14", "weather": "partly-cloudy-day.png", "highTemp": 86, "lowTemp": 66},
-    {"date": "2024-05-15", "weather": "overcast.png", "highTemp": 88, "lowTemp": 68},
-    {"date": "2024-05-16", "weather": "rain-slight.png", "highTemp": 90, "lowTemp": 70},
-    {"date": "2024-05-17", "weather": "thunderstorms.png", "highTemp": 92, "lowTemp": 72},
-    {"date": "2024-05-18", "weather": "snowfall.png", "highTemp": 94, "lowTemp": 74},
-    {"date": "2024-05-19", "weather": "clear-day.png", "highTemp": 96, "lowTemp": 76},
-    {"date": "2024-05-20", "weather": "partly-cloudy-day.png", "highTemp": 98, "lowTemp": 78},
-    {"date": "2024-05-21", "weather": "overcast.png", "highTemp": 100, "lowTemp": 80},
-    {"date": "2024-05-22", "weather": "rain-slight.png", "highTemp": 102, "lowTemp": 82},
-    {"date": "2024-05-23", "weather": "thunderstorms.png", "highTemp": 104, "lowTemp": 84},
-    {"date": "2024-05-24", "weather": "snowfall.png", "highTemp": 106, "lowTemp": 86},
-    {"date": "2024-05-25", "weather": "clear-day.png", "highTemp": 108, "lowTemp": 88},
-    {"date": "2024-05-26", "weather": "partly-cloudy-day.png", "highTemp": 110, "lowTemp": 90},
-    {"date": "2024-05-27", "weather": "overcast.png", "highTemp": 112, "lowTemp": 92},
-    {"date": "2024-05-28", "weather": "rain-slight.png", "highTemp": 114, "lowTemp": 94},
-    {"date": "2024-05-29", "weather": "thunderstorms.png", "highTemp": 116, "lowTemp": 96},
-    {"date": "2024-05-30", "weather": "snowfall.png", "highTemp": 118, "lowTemp": 98},
-    {"date": "2024-05-31", "weather": "clear-day.png", "highTemp": 120, "lowTemp": 100},
-    {"date": "2024-06-01", "weather": "clear-day.png", "highTemp": 65, "lowTemp": 45},
-    {"date": "2024-06-02", "weather": "partly-cloudy-day.png", "highTemp": 67, "lowTemp": 47},
-    {"date": "2024-06-03", "weather": "overcast.png", "highTemp": 69, "lowTemp": 49},
-    {"date": "2024-06-04", "weather": "rain-slight.png", "highTemp": 71, "lowTemp": 51},
-    {"date": "2024-06-05", "weather": "thunderstorms.png", "highTemp": 73, "lowTemp": 53},
-    {"date": "2024-06-06", "weather": "snow-showers-night.png", "highTemp": 75, "lowTemp": 55},
-    {"date": "2024-06-07", "weather": "clear-day.png", "highTemp": 77, "lowTemp": 57},
-    {"date": "2024-06-08", "weather": "partly-cloudy-day.png", "highTemp": 79, "lowTemp": 59},
-    {"date": "2024-06-09", "weather": "overcast.png", "highTemp": 81, "lowTemp": 61},
-    {"date": "2024-06-10", "weather": "rain-slight.png", "highTemp": 83, "lowTemp": 63},
-    {"date": "2024-06-11", "weather": "thunderstorms.png", "highTemp": 85, "lowTemp": 65},
-    {"date": "2024-06-12", "weather": "snow-showers-night.png", "highTemp": 87, "lowTemp": 67},
-    {"date": "2024-06-13", "weather": "clear-day.png", "highTemp": 89, "lowTemp": 69},
-    {"date": "2024-06-14", "weather": "partly-cloudy-day.png", "highTemp": 91, "lowTemp": 71},
-    {"date": "2024-06-15", "weather": "overcast.png", "highTemp": 93, "lowTemp": 73},
-    {"date": "2024-06-16", "weather": "rain-slight.png", "highTemp": 95, "lowTemp": 75},
-    {"date": "2024-06-17", "weather": "thunderstorms.png", "highTemp": 97, "lowTemp": 77},
-    {"date": "2024-06-18", "weather": "snowfall.png", "highTemp": 99, "lowTemp": 79},
-    {"date": "2024-06-19", "weather": "clear-day.png", "highTemp": 101, "lowTemp": 81},
-    {"date": "2024-06-20", "weather": "partly-cloudy-day.png", "highTemp": 103, "lowTemp": 83},
-    {"date": "2024-06-21", "weather": "overcast.png", "highTemp": 105, "lowTemp": 85},
-    {"date": "2024-06-22", "weather": "rain-slight.png", "highTemp": 107, "lowTemp": 87},
-    {"date": "2024-06-23", "weather": "thunderstorms.png", "highTemp": 109, "lowTemp": 89},
-    {"date": "2024-06-24", "weather": "snowfall.png", "highTemp": 111, "lowTemp": 91},
-    {"date": "2024-06-25", "weather": "clear-day.png", "highTemp": 113, "lowTemp": 93},
-    {"date": "2024-06-26", "weather": "partly-cloudy-day.png", "highTemp": 115, "lowTemp": 95},
-    {"date": "2024-06-27", "weather": "overcast.png", "highTemp": 117, "lowTemp": 97},
-    {"date": "2024-06-28", "weather": "rain-slight.png", "highTemp": 119, "lowTemp": 99},
-    {"date": "2024-06-29", "weather": "thunderstorms.png", "highTemp": 121, "lowTemp": 101},
-    {"date": "2024-06-30", "weather": "snowfall.png", "highTemp": 123, "lowTemp": 103},
-    {"date": "2024-07-01", "weather": "clear-day.png", "highTemp": 70, "lowTemp": 50},
-    {"date": "2024-07-02", "weather": "partly-cloudy-day.png", "highTemp": 72, "lowTemp": 52},
-    {"date": "2024-07-03", "weather": "overcast.png", "highTemp": 74, "lowTemp": 54},
-    {"date": "2024-07-04", "weather": "rain-slight.png", "highTemp": 76, "lowTemp": 56},
-    {"date": "2024-07-05", "weather": "thunderstorms.png", "highTemp": 78, "lowTemp": 58},
-    {"date": "2024-07-06", "weather": "snow-showers-night.png", "highTemp": 80, "lowTemp": 60},
-    {"date": "2024-07-07", "weather": "clear-day.png", "highTemp": 82, "lowTemp": 62},
-    {"date": "2024-07-08", "weather": "partly-cloudy-day.png", "highTemp": 84, "lowTemp": 64},
-    {"date": "2024-07-09", "weather": "overcast.png", "highTemp": 86, "lowTemp": 66},
-    {"date": "2024-07-10", "weather": "rain-slight.png", "highTemp": 88, "lowTemp": 68},
-    {"date": "2024-07-11", "weather": "thunderstorms.png", "highTemp": 90, "lowTemp": 70},
-    {"date": "2024-07-12", "weather": "snow-showers-night.png", "highTemp": 92, "lowTemp": 72},
-    {"date": "2024-07-13", "weather": "clear-day.png", "highTemp": 94, "lowTemp": 74},
-    {"date": "2024-07-14", "weather": "partly-cloudy-day.png", "highTemp": 96, "lowTemp": 76},
-    {"date": "2024-07-15", "weather": "overcast.png", "highTemp": 98, "lowTemp": 78},
-    {"date": "2024-07-16", "weather": "rain-slight.png", "highTemp": 100, "lowTemp": 80},
-    {"date": "2024-07-17", "weather": "thunderstorms.png", "highTemp": 102, "lowTemp": 82},
-    {"date": "2024-07-18", "weather": "snowfall.png", "highTemp": 104, "lowTemp": 84},
-    {"date": "2024-07-19", "weather": "clear-day.png", "highTemp": 106, "lowTemp": 86},
-    {"date": "2024-07-20", "weather": "partly-cloudy-day.png", "highTemp": 108, "lowTemp": 88},
-    {"date": "2024-07-21", "weather": "overcast.png", "highTemp": 110, "lowTemp": 90},
-    {"date": "2024-07-22", "weather": "rain-slight.png", "highTemp": 112, "lowTemp": 92},
-    {"date": "2024-07-23", "weather": "thunderstorms.png", "highTemp": 114, "lowTemp": 94},
-    {"date": "2024-07-24", "weather": "snowfall.png", "highTemp": 116, "lowTemp": 96},
-    {"date": "2024-07-25", "weather": "clear-day.png", "highTemp": 118, "lowTemp": 98},
-    {"date": "2024-07-26", "weather": "partly-cloudy-day.png", "highTemp": 120, "lowTemp": 100},
-    {"date": "2024-07-27", "weather": "overcast.png", "highTemp": 122, "lowTemp": 102},
-    {"date": "2024-07-28", "weather": "rain-slight.png", "highTemp": 124, "lowTemp": 104},
-    {"date": "2024-07-29", "weather": "thunderstorms.png", "highTemp": 126, "lowTemp": 106},
-    {"date": "2024-07-30", "weather": "snowfall.png", "highTemp": 128, "lowTemp": 108},
-    {"date": "2024-07-31", "weather": "clear-day.png", "highTemp": 130, "lowTemp": 110},
-    {"date": "2024-08-01", "weather": "clear-day.png", "highTemp": 75, "lowTemp": 55},
-    {"date": "2024-08-02", "weather": "partly-cloudy-day.png", "highTemp": 77, "lowTemp": 57},
-    {"date": "2024-08-03", "weather": "overcast.png", "highTemp": 79, "lowTemp": 59},
-    {"date": "2024-08-04", "weather": "rain-slight.png", "highTemp": 81, "lowTemp": 61},
-    {"date": "2024-08-05", "weather": "thunderstorms.png", "highTemp": 83, "lowTemp": 63},
-    {"date": "2024-08-06", "weather": "snow-showers-night.png", "highTemp": 85, "lowTemp": 65},
-    {"date": "2024-08-07", "weather": "clear-day.png", "highTemp": 87, "lowTemp": 67},
-    {"date": "2024-08-08", "weather": "partly-cloudy-day.png", "highTemp": 89, "lowTemp": 69},
-    {"date": "2024-08-09", "weather": "overcast.png", "highTemp": 91, "lowTemp": 71},
-    {"date": "2024-08-10", "weather": "rain-slight.png", "highTemp": 93, "lowTemp": 73},
-    {"date": "2024-08-11", "weather": "thunderstorms.png", "highTemp": 95, "lowTemp": 75},
-    {"date": "2024-08-12", "weather": "snow-showers-night.png", "highTemp": 97, "lowTemp": 77},
-    {"date": "2024-08-13", "weather": "clear-day.png", "highTemp": 99, "lowTemp": 79},
-    {"date": "2024-08-14", "weather": "partly-cloudy-day.png", "highTemp": 101, "lowTemp": 81},
-    {"date": "2024-08-15", "weather": "overcast.png", "highTemp": 103, "lowTemp": 83},
-    {"date": "2024-08-16", "weather": "rain-slight.png", "highTemp": 105, "lowTemp": 85},
-    {"date": "2024-08-17", "weather": "thunderstorms.png", "highTemp": 107, "lowTemp": 87},
-    {"date": "2024-08-18", "weather": "snowfall.png", "highTemp": 109, "lowTemp": 89},
-    {"date": "2024-08-19", "weather": "clear-day.png", "highTemp": 111, "lowTemp": 91},
-    {"date": "2024-08-20", "weather": "partly-cloudy-day.png", "highTemp": 113, "lowTemp": 93},
-    {"date": "2024-08-21", "weather": "overcast.png", "highTemp": 115, "lowTemp": 95},
-    {"date": "2024-08-22", "weather": "rain-slight.png", "highTemp": 117, "lowTemp": 97},
-    {"date": "2024-08-23", "weather": "thunderstorms.png", "highTemp": 119, "lowTemp": 99},
-    {"date": "2024-08-24", "weather": "snowfall.png", "highTemp": 121, "lowTemp": 101},
-    {"date": "2024-08-25", "weather": "clear-day.png", "highTemp": 123, "lowTemp": 103},
-    {"date": "2024-08-26", "weather": "partly-cloudy-day.png", "highTemp": 125, "lowTemp": 105},
-    {"date": "2024-08-27", "weather": "overcast.png", "highTemp": 127, "lowTemp": 107},
-    {"date": "2024-08-28", "weather": "rain-slight.png", "highTemp": 129, "lowTemp": 109},
-    {"date": "2024-08-29", "weather": "thunderstorms.png", "highTemp": 131, "lowTemp": 111},
-    {"date": "2024-08-30", "weather": "snowfall.png", "highTemp": 133, "lowTemp": 113},
-    {"date": "2024-08-31", "weather": "clear-day.png", "highTemp": 135, "lowTemp": 115},
-    {"date": "2024-09-01", "weather": "clear-day.png", "highTemp": 80, "lowTemp": 60},
-    {"date": "2024-09-02", "weather": "partly-cloudy-day.png", "highTemp": 82, "lowTemp": 62},
-    {"date": "2024-09-03", "weather": "overcast.png", "highTemp": 84, "lowTemp": 64},
-    {"date": "2024-09-04", "weather": "rain-slight.png", "highTemp": 86, "lowTemp": 66},
-    {"date": "2024-09-05", "weather": "thunderstorms.png", "highTemp": 88, "lowTemp": 68},
-    {"date": "2024-09-06", "weather": "snow-showers-night.png", "highTemp": 90, "lowTemp": 70},
-    {"date": "2024-09-07", "weather": "clear-day.png", "highTemp": 92, "lowTemp": 72},
-    {"date": "2024-09-08", "weather": "partly-cloudy-day.png", "highTemp": 94, "lowTemp": 74},
-    {"date": "2024-09-09", "weather": "overcast.png", "highTemp": 96, "lowTemp": 76},
-    {"date": "2024-09-10", "weather": "rain-slight.png", "highTemp": 98, "lowTemp": 78},
-    {"date": "2024-09-11", "weather": "thunderstorms.png", "highTemp": 100, "lowTemp": 80},
-    {"date": "2024-09-12", "weather": "snow-showers-night.png", "highTemp": 102, "lowTemp": 82},
-    {"date": "2024-09-13", "weather": "clear-day.png", "highTemp": 104, "lowTemp": 84},
-    {"date": "2024-09-14", "weather": "partly-cloudy-day.png", "highTemp": 106, "lowTemp": 86},
-    {"date": "2024-09-15", "weather": "overcast.png", "highTemp": 108, "lowTemp": 88},
-    {"date": "2024-09-16", "weather": "rain-slight.png", "highTemp": 110, "lowTemp": 90},
-    {"date": "2024-09-17", "weather": "thunderstorms.png", "highTemp": 112, "lowTemp": 92},
-    {"date": "2024-09-18", "weather": "snowfall.png", "highTemp": 114, "lowTemp": 94},
-    {"date": "2024-09-19", "weather": "clear-day.png", "highTemp": 116, "lowTemp": 96},
-    {"date": "2024-09-20", "weather": "partly-cloudy-day.png", "highTemp": 118, "lowTemp": 98},
-    {"date": "2024-09-21", "weather": "overcast.png", "highTemp": 120, "lowTemp": 100},
-    {"date": "2024-09-22", "weather": "rain-slight.png", "highTemp": 122, "lowTemp": 102},
-    {"date": "2024-09-23", "weather": "thunderstorms.png", "highTemp": 124, "lowTemp": 104},
-    {"date": "2024-09-24", "weather": "snowfall.png", "highTemp": 126, "lowTemp": 106},
-    {"date": "2024-09-25", "weather": "clear-day.png", "highTemp": 128, "lowTemp": 108},
-    {"date": "2024-09-26", "weather": "partly-cloudy-day.png", "highTemp": 130, "lowTemp": 110},
-    {"date": "2024-09-27", "weather": "overcast.png", "highTemp": 132, "lowTemp": 112},
-    {"date": "2024-09-28", "weather": "rain-slight.png", "highTemp": 134, "lowTemp": 114},
-    {"date": "2024-09-29", "weather": "thunderstorms.png", "highTemp": 136, "lowTemp": 116},
-    {"date": "2024-09-30", "weather": "snowfall.png", "highTemp": 138, "lowTemp": 118},
-    {"date": "2024-10-01", "weather": "clear-day.png", "highTemp": 70, "lowTemp": 50},
-    {"date": "2024-10-02", "weather": "partly-cloudy-day.png", "highTemp": 72, "lowTemp": 52},
-    {"date": "2024-10-03", "weather": "overcast.png", "highTemp": 74, "lowTemp": 54},
-    {"date": "2024-10-04", "weather": "rain-slight.png", "highTemp": 76, "lowTemp": 56},
-    {"date": "2024-10-05", "weather": "thunderstorms.png", "highTemp": 78, "lowTemp": 58},
-    {"date": "2024-10-06", "weather": "snow-showers-night.png", "highTemp": 80, "lowTemp": 60},
-    {"date": "2024-10-07", "weather": "clear-day.png", "highTemp": 82, "lowTemp": 62},
-    {"date": "2024-10-08", "weather": "partly-cloudy-day.png", "highTemp": 84, "lowTemp": 64},
-    {"date": "2024-10-09", "weather": "overcast.png", "highTemp": 86, "lowTemp": 66},
-    {"date": "2024-10-10", "weather": "rain-slight.png", "highTemp": 88, "lowTemp": 68},
-    {"date": "2024-10-11", "weather": "thunderstorms.png", "highTemp": 90, "lowTemp": 70},
-    {"date": "2024-10-12", "weather": "snow-showers-night.png", "highTemp": 92, "lowTemp": 72},
-    {"date": "2024-10-13", "weather": "clear-day.png", "highTemp": 94, "lowTemp": 74},
-    {"date": "2024-10-14", "weather": "partly-cloudy-day.png", "highTemp": 96, "lowTemp": 76},
-    {"date": "2024-10-15", "weather": "overcast.png", "highTemp": 98, "lowTemp": 78},
-    {"date": "2024-10-16", "weather": "rain-slight.png", "highTemp": 100, "lowTemp": 80},
-    {"date": "2024-10-17", "weather": "thunderstorms.png", "highTemp": 102, "lowTemp": 82},
-    {"date": "2024-10-18", "weather": "snowfall.png", "highTemp": 104, "lowTemp": 84},
-    {"date": "2024-10-19", "weather": "clear-day.png", "highTemp": 106, "lowTemp": 86},
-    {"date": "2024-10-20", "weather": "partly-cloudy-day.png", "highTemp": 108, "lowTemp": 88},
-    {"date": "2024-10-21", "weather": "overcast.png", "highTemp": 110, "lowTemp": 90},
-    {"date": "2024-10-22", "weather": "rain-slight.png", "highTemp": 112, "lowTemp": 92},
-    {"date": "2024-10-23", "weather": "thunderstorms.png", "highTemp": 114, "lowTemp": 94},
-    {"date": "2024-10-24", "weather": "snowfall.png", "highTemp": 116, "lowTemp": 96},
-    {"date": "2024-10-25", "weather": "clear-day.png", "highTemp": 118, "lowTemp": 98},
-    {"date": "2024-10-26", "weather": "partly-cloudy-day.png", "highTemp": 120, "lowTemp": 100},
-    {"date": "2024-10-27", "weather": "overcast.png", "highTemp": 122, "lowTemp": 102},
-    {"date": "2024-10-28", "weather": "rain-slight.png", "highTemp": 124, "lowTemp": 104},
-    {"date": "2024-10-29", "weather": "thunderstorms.png", "highTemp": 126, "lowTemp": 106},
-    {"date": "2024-10-30", "weather": "snowfall.png", "highTemp": 128, "lowTemp": 108},
-    {"date": "2024-10-31", "weather": "clear-day.png", "highTemp": 130, "lowTemp": 110},
-    {"date": "2024-11-01", "weather": "clear-day.png", "highTemp": 60, "lowTemp": 40},
-    {"date": "2024-11-02", "weather": "partly-cloudy-day.png", "highTemp": 62, "lowTemp": 42},
-    {"date": "2024-11-03", "weather": "overcast.png", "highTemp": 64, "lowTemp": 44},
-    {"date": "2024-11-04", "weather": "rain-slight.png", "highTemp": 66, "lowTemp": 46},
-    {"date": "2024-11-05", "weather": "thunderstorms.png", "highTemp": 68, "lowTemp": 48},
-    {"date": "2024-11-06", "weather": "snow-showers-night.png", "highTemp": 70, "lowTemp": 50},
-    {"date": "2024-11-07", "weather": "clear-day.png", "highTemp": 72, "lowTemp": 52},
-    {"date": "2024-11-08", "weather": "partly-cloudy-day.png", "highTemp": 74, "lowTemp": 54},
-    {"date": "2024-11-09", "weather": "overcast.png", "highTemp": 76, "lowTemp": 56},
-    {"date": "2024-11-10", "weather": "rain-slight.png", "highTemp": 78, "lowTemp": 58},
-    {"date": "2024-11-11", "weather": "thunderstorms.png", "highTemp": 80, "lowTemp": 60},
-    {"date": "2024-11-12", "weather": "snowfall.png", "highTemp": 82, "lowTemp": 62},
-    {"date": "2024-11-13", "weather": "clear-day.png", "highTemp": 84, "lowTemp": 64},
-    {"date": "2024-11-14", "weather": "partly-cloudy-day.png", "highTemp": 86, "lowTemp": 66},
-    {"date": "2024-11-15", "weather": "overcast.png", "highTemp": 88, "lowTemp": 68},
-    {"date": "2024-11-16", "weather": "rain-slight.png", "highTemp": 90, "lowTemp": 70},
-    {"date": "2024-11-17", "weather": "thunderstorms.png", "highTemp": 92, "lowTemp": 72},
-    {"date": "2024-11-18", "weather": "snowfall.png", "highTemp": 94, "lowTemp": 74},
-    {"date": "2024-11-19", "weather": "clear-day.png", "highTemp": 96, "lowTemp": 76},
-    {"date": "2024-11-20", "weather": "partly-cloudy-day.png", "highTemp": 98, "lowTemp": 78},
-    {"date": "2024-11-21", "weather": "overcast.png", "highTemp": 100, "lowTemp": 80},
-    {"date": "2024-11-22", "weather": "rain-slight.png", "highTemp": 102, "lowTemp": 82},
-    {"date": "2024-11-23", "weather": "thunderstorms.png", "highTemp": 104, "lowTemp": 84},
-    {"date": "2024-11-24", "weather": "snowfall.png", "highTemp": 106, "lowTemp": 86},
-    {"date": "2024-11-25", "weather": "clear-day.png", "highTemp": 108, "lowTemp": 88},
-    {"date": "2024-11-26", "weather": "partly-cloudy-day.png", "highTemp": 110, "lowTemp": 90},
-    {"date": "2024-11-27", "weather": "overcast.png", "highTemp": 112, "lowTemp": 92},
-    {"date": "2024-11-28", "weather": "rain-slight.png", "highTemp": 114, "lowTemp": 94},
-    {"date": "2024-11-29", "weather": "thunderstorms.png", "highTemp": 116, "lowTemp": 96},
-    {"date": "2024-11-30", "weather": "snowfall.png", "highTemp": 118, "lowTemp": 98},
-    {"date": "2024-12-01", "weather": "clear-day.png", "highTemp": 65, "lowTemp": 45},
-    {"date": "2024-12-02", "weather": "partly-cloudy-day.png", "highTemp": 60, "lowTemp": 40},
-    {"date": "2024-12-03", "weather": "overcast.png", "highTemp": 55, "lowTemp": 35},
-    {"date": "2024-12-04", "weather": "rain-slight.png", "highTemp": 50, "lowTemp": 30},
-    {"date": "2024-12-05", "weather": "thunderstorms.png", "highTemp": 45, "lowTemp": 25},
-    {"date": "2024-12-06", "weather": "snow-showers-night.png", "highTemp": 40, "lowTemp": 20},
-    {"date": "2024-12-07", "weather": "clear-day.png", "highTemp": 65, "lowTemp": 45},
-    {"date": "2024-12-08", "weather": "partly-cloudy-day.png", "highTemp": 60, "lowTemp": 40},
-    {"date": "2024-12-09", "weather": "overcast.png", "highTemp": 55, "lowTemp": 35},
-    {"date": "2024-12-10", "weather": "rain-slight.png", "highTemp": 50, "lowTemp": 30},
-    {"date": "2024-12-11", "weather": "thunderstorms.png", "highTemp": 45, "lowTemp": 25},
-    {"date": "2024-12-12", "weather": "snowfall.png", "highTemp": 40, "lowTemp": 20},
-    {"date": "2024-12-13", "weather": "clear-day.png", "highTemp": 65, "lowTemp": 45},
-    {"date": "2024-12-14", "weather": "partly-cloudy-day.png", "highTemp": 60, "lowTemp": 40},
-    {"date": "2024-12-15", "weather": "overcast.png", "highTemp": 55, "lowTemp": 35},
-    {"date": "2024-12-16", "weather": "rain-slight.png", "highTemp": 50, "lowTemp": 30},
-    {"date": "2024-12-17", "weather": "thunderstorms.png", "highTemp": 45, "lowTemp": 25},
-    {"date": "2024-12-18", "weather": "snowfall.png", "highTemp": 40, "lowTemp": 20},
-    {"date": "2024-12-19", "weather": "clear-day.png", "highTemp": 65, "lowTemp": 45},
-    {"date": "2024-12-20", "weather": "partly-cloudy-day.png", "highTemp": 60, "lowTemp": 40},
-    {"date": "2024-12-21", "weather": "overcast.png", "highTemp": 55, "lowTemp": 35},
-    {"date": "2024-12-22", "weather": "rain-slight.png", "highTemp": 50, "lowTemp": 30},
-    {"date": "2024-12-23", "weather": "thunderstorms.png", "highTemp": 45, "lowTemp": 25},
-    {"date": "2024-12-24", "weather": "snowfall.png", "highTemp": 40, "lowTemp": 20},
-    {"date": "2024-12-25", "weather": "clear-day.png", "highTemp": 65, "lowTemp": 45},
-    {"date": "2024-12-26", "weather": "partly-cloudy-day.png", "highTemp": 60, "lowTemp": 40},
-    {"date": "2024-12-27", "weather": "overcast.png", "highTemp": 55, "lowTemp": 35},
-    {"date": "2024-12-28", "weather": "rain-slight.png", "highTemp": 50, "lowTemp": 30},
-    {"date": "2024-12-29", "weather": "thunderstorms.png", "highTemp": 45, "lowTemp": 25},
-    {"date": "2024-12-30", "weather": "snowfall.png", "highTemp": 40, "lowTemp": 20}
+    {
+        "date": "2024-01-01",
+        "weather": "clear-day.png",
+        "highTemp": 10.0,
+        "lowTemp": -1.1
+    },
+    {
+        "date": "2024-01-02",
+        "weather": "partly-cloudy-day.png",
+        "highTemp": 8.9,
+        "lowTemp": -2.2
+    },
+    {
+        "date": "2024-01-03",
+        "weather": "overcast.png",
+        "highTemp": 7.8,
+        "lowTemp": -3.3
+    },
+    {
+        "date": "2024-01-04",
+        "weather": "rain-slight.png",
+        "highTemp": 6.7,
+        "lowTemp": -4.4
+    },
+    {
+        "date": "2024-01-05",
+        "weather": "thunderstorms.png",
+        "highTemp": 5.6,
+        "lowTemp": -5.6
+    },
+    {
+        "date": "2024-01-06",
+        "weather": "snow-showers-night.png",
+        "highTemp": 4.4,
+        "lowTemp": -6.7
+    },
+    {
+        "date": "2024-01-07",
+        "weather": "clear-day.png",
+        "highTemp": 11.1,
+        "lowTemp": 0.0
+    },
+    {
+        "date": "2024-01-08",
+        "weather": "partly-cloudy-day.png",
+        "highTemp": 10.0,
+        "lowTemp": -1.1
+    },
+    {
+        "date": "2024-01-09",
+        "weather": "overcast.png",
+        "highTemp": 8.9,
+        "lowTemp": -2.2
+    },
+    {
+        "date": "2024-01-10",
+        "weather": "rain-slight.png",
+        "highTemp": 7.8,
+        "lowTemp": -3.3
+    },
+    {
+        "date": "2024-01-11",
+        "weather": "thunderstorms.png",
+        "highTemp": 6.7,
+        "lowTemp": -4.4
+    },
+    {
+        "date": "2024-01-12",
+        "weather": "snow-showers-night.png",
+        "highTemp": 5.6,
+        "lowTemp": -5.6
+    },
+    {
+        "date": "2024-01-13",
+        "weather": "clear-day.png",
+        "highTemp": 12.8,
+        "lowTemp": 1.7
+    },
+    {
+        "date": "2024-01-14",
+        "weather": "partly-cloudy-day.png",
+        "highTemp": 11.7,
+        "lowTemp": 0.6
+    },
+    {
+        "date": "2024-01-15",
+        "weather": "overcast.png",
+        "highTemp": 10.6,
+        "lowTemp": -0.6
+    },
+    {
+        "date": "2024-01-16",
+        "weather": "rain-slight.png",
+        "highTemp": 9.4,
+        "lowTemp": -1.7
+    },
+    {
+        "date": "2024-01-17",
+        "weather": "thunderstorms.png",
+        "highTemp": 8.3,
+        "lowTemp": -2.8
+    },
+    {
+        "date": "2024-01-18",
+        "weather": "snowfall.png",
+        "highTemp": 7.2,
+        "lowTemp": -3.9
+    },
+    {
+        "date": "2024-01-19",
+        "weather": "clear-day.png",
+        "highTemp": 14.4,
+        "lowTemp": 3.3
+    },
+    {
+        "date": "2024-01-20",
+        "weather": "partly-cloudy-day.png",
+        "highTemp": 13.3,
+        "lowTemp": 2.2
+    },
+    {
+        "date": "2024-01-21",
+        "weather": "overcast.png",
+        "highTemp": 12.2,
+        "lowTemp": 1.1
+    },
+    {
+        "date": "2024-01-22",
+        "weather": "rain-slight.png",
+        "highTemp": 11.1,
+        "lowTemp": 0.0
+    },
+    {
+        "date": "2024-01-23",
+        "weather": "thunderstorms.png",
+        "highTemp": 10.0,
+        "lowTemp": -1.1
+    },
+    {
+        "date": "2024-01-24",
+        "weather": "snow-showers-night.png",
+        "highTemp": 8.9,
+        "lowTemp": -2.2
+    },
+    {
+        "date": "2024-01-25",
+        "weather": "clear-day.png",
+        "highTemp": 15.6,
+        "lowTemp": 4.4
+    },
+    {
+        "date": "2024-01-26",
+        "weather": "partly-cloudy-day.png",
+        "highTemp": 14.4,
+        "lowTemp": 3.3
+    },
+    {
+        "date": "2024-01-27",
+        "weather": "overcast.png",
+        "highTemp": 13.3,
+        "lowTemp": 2.2
+    },
+    {
+        "date": "2024-01-28",
+        "weather": "rain-slight.png",
+        "highTemp": 12.2,
+        "lowTemp": 1.1
+    },
+    {
+        "date": "2024-01-29",
+        "weather": "thunderstorms.png",
+        "highTemp": 11.1,
+        "lowTemp": 0.0
+    },
+    {
+        "date": "2024-01-30",
+        "weather": "snowfall.png",
+        "highTemp": 10.0,
+        "lowTemp": -1.1
+    },
+    {
+        "date": "2024-01-31",
+        "weather": "clear-day.png",
+        "highTemp": 16.7,
+        "lowTemp": 5.6
+    },
+    {
+        "date": "2024-02-01",
+        "weather": "clear-day.png",
+        "highTemp": 12.8,
+        "lowTemp": 1.7
+    },
+    {
+        "date": "2024-02-02",
+        "weather": "partly-cloudy-day.png",
+        "highTemp": 11.7,
+        "lowTemp": 0.6
+    },
+    {
+        "date": "2024-02-03",
+        "weather": "overcast.png",
+        "highTemp": 10.6,
+        "lowTemp": -0.6
+    },
+    {
+        "date": "2024-02-04",
+        "weather": "rain-slight.png",
+        "highTemp": 9.4,
+        "lowTemp": -1.7
+    },
+    {
+        "date": "2024-02-05",
+        "weather": "thunderstorms.png",
+        "highTemp": 8.3,
+        "lowTemp": -2.8
+    },
+    {
+        "date": "2024-02-06",
+        "weather": "snow-showers-night.png",
+        "highTemp": 7.2,
+        "lowTemp": -3.9
+    },
+    {
+        "date": "2024-02-07",
+        "weather": "clear-day.png",
+        "highTemp": 13.9,
+        "lowTemp": 2.8
+    },
+    {
+        "date": "2024-02-08",
+        "weather": "partly-cloudy-day.png",
+        "highTemp": 12.8,
+        "lowTemp": 1.7
+    },
+    {
+        "date": "2024-02-09",
+        "weather": "overcast.png",
+        "highTemp": 11.7,
+        "lowTemp": 0.6
+    },
+    {
+        "date": "2024-02-10",
+        "weather": "rain-slight.png",
+        "highTemp": 10.6,
+        "lowTemp": -0.6
+    },
+    {
+        "date": "2024-02-11",
+        "weather": "thunderstorms.png",
+        "highTemp": 9.4,
+        "lowTemp": -1.7
+    },
+    {
+        "date": "2024-02-12",
+        "weather": "snow-showers-night.png",
+        "highTemp": 8.3,
+        "lowTemp": -2.8
+    },
+    {
+        "date": "2024-02-13",
+        "weather": "clear-day.png",
+        "highTemp": 15.6,
+        "lowTemp": 4.4
+    },
+    {
+        "date": "2024-02-14",
+        "weather": "partly-cloudy-day.png",
+        "highTemp": 14.4,
+        "lowTemp": 3.3
+    },
+    {
+        "date": "2024-02-15",
+        "weather": "overcast.png",
+        "highTemp": 13.3,
+        "lowTemp": 2.2
+    },
+    {
+        "date": "2024-02-16",
+        "weather": "rain-slight.png",
+        "highTemp": 12.2,
+        "lowTemp": 1.1
+    },
+    {
+        "date": "2024-02-17",
+        "weather": "thunderstorms.png",
+        "highTemp": 11.1,
+        "lowTemp": 0.0
+    },
+    {
+        "date": "2024-02-18",
+        "weather": "snowfall.png",
+        "highTemp": 10.0,
+        "lowTemp": -1.1
+    },
+    {
+        "date": "2024-02-19",
+        "weather": "clear-day.png",
+        "highTemp": 16.7,
+        "lowTemp": 5.6
+    },
+    {
+        "date": "2024-02-20",
+        "weather": "partly-cloudy-day.png",
+        "highTemp": 15.6,
+        "lowTemp": 4.4
+    },
+    {
+        "date": "2024-02-21",
+        "weather": "overcast.png",
+        "highTemp": 14.4,
+        "lowTemp": 3.3
+    },
+    {
+        "date": "2024-02-22",
+        "weather": "rain-slight.png",
+        "highTemp": 13.3,
+        "lowTemp": 2.2
+    },
+    {
+        "date": "2024-02-23",
+        "weather": "thunderstorms.png",
+        "highTemp": 12.2,
+        "lowTemp": 1.1
+    },
+    {
+        "date": "2024-02-24",
+        "weather": "snowfall.png",
+        "highTemp": 11.1,
+        "lowTemp": 0.0
+    },
+    {
+        "date": "2024-02-25",
+        "weather": "clear-day.png",
+        "highTemp": 17.8,
+        "lowTemp": 6.7
+    },
+    {
+        "date": "2024-02-26",
+        "weather": "partly-cloudy-day.png",
+        "highTemp": 16.7,
+        "lowTemp": 5.6
+    },
+    {
+        "date": "2024-02-27",
+        "weather": "overcast.png",
+        "highTemp": 15.6,
+        "lowTemp": 4.4
+    },
+    {
+        "date": "2024-02-28",
+        "weather": "rain-slight.png",
+        "highTemp": 14.4,
+        "lowTemp": 3.3
+    },
+    {
+        "date": "2024-03-01",
+        "weather": "clear-day.png",
+        "highTemp": 14.4,
+        "lowTemp": 3.3
+    },
+    {
+        "date": "2024-03-02",
+        "weather": "partly-cloudy-day.png",
+        "highTemp": 15.6,
+        "lowTemp": 4.4
+    },
+    {
+        "date": "2024-03-03",
+        "weather": "overcast.png",
+        "highTemp": 16.7,
+        "lowTemp": 5.6
+    },
+    {
+        "date": "2024-03-04",
+        "weather": "rain-slight.png",
+        "highTemp": 17.8,
+        "lowTemp": 6.7
+    },
+    {
+        "date": "2024-03-05",
+        "weather": "thunderstorms.png",
+        "highTemp": 18.9,
+        "lowTemp": 7.8
+    },
+    {
+        "date": "2024-03-06",
+        "weather": "snow-showers-night.png",
+        "highTemp": 15.6,
+        "lowTemp": 4.4
+    },
+    {
+        "date": "2024-03-07",
+        "weather": "clear-day.png",
+        "highTemp": 20.0,
+        "lowTemp": 8.9
+    },
+    {
+        "date": "2024-03-08",
+        "weather": "partly-cloudy-day.png",
+        "highTemp": 21.1,
+        "lowTemp": 10.0
+    },
+    {
+        "date": "2024-03-09",
+        "weather": "overcast.png",
+        "highTemp": 22.2,
+        "lowTemp": 11.1
+    },
+    {
+        "date": "2024-03-10",
+        "weather": "rain-slight.png",
+        "highTemp": 23.3,
+        "lowTemp": 12.2
+    },
+    {
+        "date": "2024-03-11",
+        "weather": "thunderstorms.png",
+        "highTemp": 24.4,
+        "lowTemp": 13.3
+    },
+    {
+        "date": "2024-03-12",
+        "weather": "snow-showers-night.png",
+        "highTemp": 22.2,
+        "lowTemp": 11.1
+    },
+    {
+        "date": "2024-03-13",
+        "weather": "clear-day.png",
+        "highTemp": 25.6,
+        "lowTemp": 14.4
+    },
+    {
+        "date": "2024-03-14",
+        "weather": "partly-cloudy-day.png",
+        "highTemp": 26.7,
+        "lowTemp": 15.6
+    },
+    {
+        "date": "2024-03-15",
+        "weather": "overcast.png",
+        "highTemp": 27.8,
+        "lowTemp": 16.7
+    },
+    {
+        "date": "2024-03-16",
+        "weather": "rain-slight.png",
+        "highTemp": 28.9,
+        "lowTemp": 17.8
+    },
+    {
+        "date": "2024-03-17",
+        "weather": "thunderstorms.png",
+        "highTemp": 30.0,
+        "lowTemp": 18.9
+    },
+    {
+        "date": "2024-03-18",
+        "weather": "snowfall.png",
+        "highTemp": 27.8,
+        "lowTemp": 16.7
+    },
+    {
+        "date": "2024-03-19",
+        "weather": "clear-day.png",
+        "highTemp": 31.1,
+        "lowTemp": 20.0
+    },
+    {
+        "date": "2024-03-20",
+        "weather": "partly-cloudy-day.png",
+        "highTemp": 32.2,
+        "lowTemp": 21.1
+    },
+    {
+        "date": "2024-03-21",
+        "weather": "overcast.png",
+        "highTemp": 33.3,
+        "lowTemp": 22.2
+    },
+    {
+        "date": "2024-03-22",
+        "weather": "rain-slight.png",
+        "highTemp": 34.4,
+        "lowTemp": 23.3
+    },
+    {
+        "date": "2024-03-23",
+        "weather": "thunderstorms.png",
+        "highTemp": 35.6,
+        "lowTemp": 24.4
+    },
+    {
+        "date": "2024-03-24",
+        "weather": "snowfall.png",
+        "highTemp": 33.3,
+        "lowTemp": 22.2
+    },
+    {
+        "date": "2024-03-25",
+        "weather": "clear-day.png",
+        "highTemp": 36.7,
+        "lowTemp": 25.6
+    },
+    {
+        "date": "2024-03-26",
+        "weather": "partly-cloudy-day.png",
+        "highTemp": 37.8,
+        "lowTemp": 26.7
+    },
+    {
+        "date": "2024-03-27",
+        "weather": "overcast.png",
+        "highTemp": 38.9,
+        "lowTemp": 27.8
+    },
+    {
+        "date": "2024-03-28",
+        "weather": "rain-slight.png",
+        "highTemp": 40.0,
+        "lowTemp": 28.9
+    },
+    {
+        "date": "2024-03-29",
+        "weather": "thunderstorms.png",
+        "highTemp": 41.1,
+        "lowTemp": 30.0
+    },
+    {
+        "date": "2024-03-30",
+        "weather": "snowfall.png",
+        "highTemp": 38.9,
+        "lowTemp": 27.8
+    },
+    {
+        "date": "2024-03-31",
+        "weather": "clear-day.png",
+        "highTemp": 42.2,
+        "lowTemp": 31.1
+    },
+    {
+        "date": "2024-04-01",
+        "weather": "clear-day.png",
+        "highTemp": 12.8,
+        "lowTemp": 1.7
+    },
+    {
+        "date": "2024-04-02",
+        "weather": "partly-cloudy-day.png",
+        "highTemp": 13.9,
+        "lowTemp": 2.8
+    },
+    {
+        "date": "2024-04-03",
+        "weather": "overcast.png",
+        "highTemp": 15.0,
+        "lowTemp": 3.9
+    },
+    {
+        "date": "2024-04-04",
+        "weather": "rain-slight.png",
+        "highTemp": 16.1,
+        "lowTemp": 5.0
+    },
+    {
+        "date": "2024-04-05",
+        "weather": "thunderstorms.png",
+        "highTemp": 17.2,
+        "lowTemp": 6.1
+    },
+    {
+        "date": "2024-04-06",
+        "weather": "snow-showers-night.png",
+        "highTemp": 18.3,
+        "lowTemp": 7.2
+    },
+    {
+        "date": "2024-04-07",
+        "weather": "clear-day.png",
+        "highTemp": 19.4,
+        "lowTemp": 8.3
+    },
+    {
+        "date": "2024-04-08",
+        "weather": "partly-cloudy-day.png",
+        "highTemp": 20.6,
+        "lowTemp": 9.4
+    },
+    {
+        "date": "2024-04-09",
+        "weather": "overcast.png",
+        "highTemp": 21.7,
+        "lowTemp": 10.6
+    },
+    {
+        "date": "2024-04-10",
+        "weather": "rain-slight.png",
+        "highTemp": 22.8,
+        "lowTemp": 11.7
+    },
+    {
+        "date": "2024-04-11",
+        "weather": "thunderstorms.png",
+        "highTemp": 23.9,
+        "lowTemp": 12.8
+    },
+    {
+        "date": "2024-04-12",
+        "weather": "snow-showers-night.png",
+        "highTemp": 25.0,
+        "lowTemp": 13.9
+    },
+    {
+        "date": "2024-04-13",
+        "weather": "clear-day.png",
+        "highTemp": 26.1,
+        "lowTemp": 15.0
+    },
+    {
+        "date": "2024-04-14",
+        "weather": "partly-cloudy-day.png",
+        "highTemp": 27.2,
+        "lowTemp": 16.1
+    },
+    {
+        "date": "2024-04-15",
+        "weather": "overcast.png",
+        "highTemp": 28.3,
+        "lowTemp": 17.2
+    },
+    {
+        "date": "2024-04-16",
+        "weather": "rain-slight.png",
+        "highTemp": 29.4,
+        "lowTemp": 18.3
+    },
+    {
+        "date": "2024-04-17",
+        "weather": "thunderstorms.png",
+        "highTemp": 30.6,
+        "lowTemp": 19.4
+    },
+    {
+        "date": "2024-04-18",
+        "weather": "snowfall.png",
+        "highTemp": 31.7,
+        "lowTemp": 20.6
+    },
+    {
+        "date": "2024-04-19",
+        "weather": "clear-day.png",
+        "highTemp": 32.8,
+        "lowTemp": 21.7
+    },
+    {
+        "date": "2024-04-20",
+        "weather": "partly-cloudy-day.png",
+        "highTemp": 33.9,
+        "lowTemp": 22.8
+    },
+    {
+        "date": "2024-04-21",
+        "weather": "overcast.png",
+        "highTemp": 35.0,
+        "lowTemp": 23.9
+    },
+    {
+        "date": "2024-04-22",
+        "weather": "rain-slight.png",
+        "highTemp": 36.1,
+        "lowTemp": 25.0
+    },
+    {
+        "date": "2024-04-23",
+        "weather": "thunderstorms.png",
+        "highTemp": 37.2,
+        "lowTemp": 26.1
+    },
+    {
+        "date": "2024-04-24",
+        "weather": "snowfall.png",
+        "highTemp": 38.3,
+        "lowTemp": 27.2
+    },
+    {
+        "date": "2024-04-25",
+        "weather": "clear-day.png",
+        "highTemp": 39.4,
+        "lowTemp": 28.3
+    },
+    {
+        "date": "2024-04-26",
+        "weather": "partly-cloudy-day.png",
+        "highTemp": 40.6,
+        "lowTemp": 29.4
+    },
+    {
+        "date": "2024-04-27",
+        "weather": "overcast.png",
+        "highTemp": 41.7,
+        "lowTemp": 30.6
+    },
+    {
+        "date": "2024-04-28",
+        "weather": "rain-slight.png",
+        "highTemp": 42.8,
+        "lowTemp": 31.7
+    },
+    {
+        "date": "2024-04-29",
+        "weather": "thunderstorms.png",
+        "highTemp": 43.9,
+        "lowTemp": 32.8
+    },
+    {
+        "date": "2024-04-30",
+        "weather": "snowfall.png",
+        "highTemp": 45.0,
+        "lowTemp": 33.9
+    },
+    {
+        "date": "2024-05-01",
+        "weather": "clear-day.png",
+        "highTemp": 15.6,
+        "lowTemp": 4.4
+    },
+    {
+        "date": "2024-05-02",
+        "weather": "partly-cloudy-day.png",
+        "highTemp": 16.7,
+        "lowTemp": 5.6
+    },
+    {
+        "date": "2024-05-03",
+        "weather": "overcast.png",
+        "highTemp": 17.8,
+        "lowTemp": 6.7
+    },
+    {
+        "date": "2024-05-04",
+        "weather": "rain-slight.png",
+        "highTemp": 18.9,
+        "lowTemp": 7.8
+    },
+    {
+        "date": "2024-05-05",
+        "weather": "thunderstorms.png",
+        "highTemp": 20.0,
+        "lowTemp": 8.9
+    },
+    {
+        "date": "2024-05-06",
+        "weather": "snow-showers-night.png",
+        "highTemp": 21.1,
+        "lowTemp": 10.0
+    },
+    {
+        "date": "2024-05-07",
+        "weather": "clear-day.png",
+        "highTemp": 22.2,
+        "lowTemp": 11.1
+    },
+    {
+        "date": "2024-05-08",
+        "weather": "partly-cloudy-day.png",
+        "highTemp": 23.3,
+        "lowTemp": 12.2
+    },
+    {
+        "date": "2024-05-09",
+        "weather": "overcast.png",
+        "highTemp": 24.4,
+        "lowTemp": 13.3
+    },
+    {
+        "date": "2024-05-10",
+        "weather": "rain-slight.png",
+        "highTemp": 25.6,
+        "lowTemp": 14.4
+    },
+    {
+        "date": "2024-05-11",
+        "weather": "thunderstorms.png",
+        "highTemp": 26.7,
+        "lowTemp": 15.6
+    },
+    {
+        "date": "2024-05-12",
+        "weather": "snow-showers-night.png",
+        "highTemp": 27.8,
+        "lowTemp": 16.7
+    },
+    {
+        "date": "2024-05-13",
+        "weather": "clear-day.png",
+        "highTemp": 28.9,
+        "lowTemp": 17.8
+    },
+    {
+        "date": "2024-05-14",
+        "weather": "partly-cloudy-day.png",
+        "highTemp": 30.0,
+        "lowTemp": 18.9
+    },
+    {
+        "date": "2024-05-15",
+        "weather": "overcast.png",
+        "highTemp": 31.1,
+        "lowTemp": 20.0
+    },
+    {
+        "date": "2024-05-16",
+        "weather": "rain-slight.png",
+        "highTemp": 32.2,
+        "lowTemp": 21.1
+    },
+    {
+        "date": "2024-05-17",
+        "weather": "thunderstorms.png",
+        "highTemp": 33.3,
+        "lowTemp": 22.2
+    },
+    {
+        "date": "2024-05-18",
+        "weather": "snowfall.png",
+        "highTemp": 34.4,
+        "lowTemp": 23.3
+    },
+    {
+        "date": "2024-05-19",
+        "weather": "clear-day.png",
+        "highTemp": 35.6,
+        "lowTemp": 24.4
+    },
+    {
+        "date": "2024-05-20",
+        "weather": "partly-cloudy-day.png",
+        "highTemp": 36.7,
+        "lowTemp": 25.6
+    },
+    {
+        "date": "2024-05-21",
+        "weather": "overcast.png",
+        "highTemp": 37.8,
+        "lowTemp": 26.7
+    },
+    {
+        "date": "2024-05-22",
+        "weather": "rain-slight.png",
+        "highTemp": 38.9,
+        "lowTemp": 27.8
+    },
+    {
+        "date": "2024-05-23",
+        "weather": "thunderstorms.png",
+        "highTemp": 40.0,
+        "lowTemp": 28.9
+    },
+    {
+        "date": "2024-05-24",
+        "weather": "snowfall.png",
+        "highTemp": 41.1,
+        "lowTemp": 30.0
+    },
+    {
+        "date": "2024-05-25",
+        "weather": "clear-day.png",
+        "highTemp": 42.2,
+        "lowTemp": 31.1
+    },
+    {
+        "date": "2024-05-26",
+        "weather": "partly-cloudy-day.png",
+        "highTemp": 43.3,
+        "lowTemp": 32.2
+    },
+    {
+        "date": "2024-05-27",
+        "weather": "overcast.png",
+        "highTemp": 44.4,
+        "lowTemp": 33.3
+    },
+    {
+        "date": "2024-05-28",
+        "weather": "rain-slight.png",
+        "highTemp": 45.6,
+        "lowTemp": 34.4
+    },
+    {
+        "date": "2024-05-29",
+        "weather": "thunderstorms.png",
+        "highTemp": 46.7,
+        "lowTemp": 35.6
+    },
+    {
+        "date": "2024-05-30",
+        "weather": "snowfall.png",
+        "highTemp": 47.8,
+        "lowTemp": 36.7
+    },
+    {
+        "date": "2024-05-31",
+        "weather": "clear-day.png",
+        "highTemp": 48.9,
+        "lowTemp": 37.8
+    },
+    {
+        "date": "2024-06-01",
+        "weather": "clear-day.png",
+        "highTemp": 18.3,
+        "lowTemp": 7.2
+    },
+    {
+        "date": "2024-06-02",
+        "weather": "partly-cloudy-day.png",
+        "highTemp": 19.4,
+        "lowTemp": 8.3
+    },
+    {
+        "date": "2024-06-03",
+        "weather": "overcast.png",
+        "highTemp": 20.6,
+        "lowTemp": 9.4
+    },
+    {
+        "date": "2024-06-04",
+        "weather": "rain-slight.png",
+        "highTemp": 21.7,
+        "lowTemp": 10.6
+    },
+    {
+        "date": "2024-06-05",
+        "weather": "thunderstorms.png",
+        "highTemp": 22.8,
+        "lowTemp": 11.7
+    },
+    {
+        "date": "2024-06-06",
+        "weather": "snow-showers-night.png",
+        "highTemp": 23.9,
+        "lowTemp": 12.8
+    },
+    {
+        "date": "2024-06-07",
+        "weather": "clear-day.png",
+        "highTemp": 25.0,
+        "lowTemp": 13.9
+    },
+    {
+        "date": "2024-06-08",
+        "weather": "partly-cloudy-day.png",
+        "highTemp": 26.1,
+        "lowTemp": 15.0
+    },
+    {
+        "date": "2024-06-09",
+        "weather": "overcast.png",
+        "highTemp": 27.2,
+        "lowTemp": 16.1
+    },
+    {
+        "date": "2024-06-10",
+        "weather": "rain-slight.png",
+        "highTemp": 28.3,
+        "lowTemp": 17.2
+    },
+    {
+        "date": "2024-06-11",
+        "weather": "thunderstorms.png",
+        "highTemp": 29.4,
+        "lowTemp": 18.3
+    },
+    {
+        "date": "2024-06-12",
+        "weather": "snow-showers-night.png",
+        "highTemp": 30.6,
+        "lowTemp": 19.4
+    },
+    {
+        "date": "2024-06-13",
+        "weather": "clear-day.png",
+        "highTemp": 31.7,
+        "lowTemp": 20.6
+    },
+    {
+        "date": "2024-06-14",
+        "weather": "partly-cloudy-day.png",
+        "highTemp": 32.8,
+        "lowTemp": 21.7
+    },
+    {
+        "date": "2024-06-15",
+        "weather": "overcast.png",
+        "highTemp": 33.9,
+        "lowTemp": 22.8
+    },
+    {
+        "date": "2024-06-16",
+        "weather": "rain-slight.png",
+        "highTemp": 35.0,
+        "lowTemp": 23.9
+    },
+    {
+        "date": "2024-06-17",
+        "weather": "thunderstorms.png",
+        "highTemp": 36.1,
+        "lowTemp": 25.0
+    },
+    {
+        "date": "2024-06-18",
+        "weather": "snowfall.png",
+        "highTemp": 37.2,
+        "lowTemp": 26.1
+    },
+    {
+        "date": "2024-06-19",
+        "weather": "clear-day.png",
+        "highTemp": 38.3,
+        "lowTemp": 27.2
+    },
+    {
+        "date": "2024-06-20",
+        "weather": "partly-cloudy-day.png",
+        "highTemp": 39.4,
+        "lowTemp": 28.3
+    },
+    {
+        "date": "2024-06-21",
+        "weather": "overcast.png",
+        "highTemp": 40.6,
+        "lowTemp": 29.4
+    },
+    {
+        "date": "2024-06-22",
+        "weather": "rain-slight.png",
+        "highTemp": 41.7,
+        "lowTemp": 30.6
+    },
+    {
+        "date": "2024-06-23",
+        "weather": "thunderstorms.png",
+        "highTemp": 42.8,
+        "lowTemp": 31.7
+    },
+    {
+        "date": "2024-06-24",
+        "weather": "snowfall.png",
+        "highTemp": 43.9,
+        "lowTemp": 32.8
+    },
+    {
+        "date": "2024-06-25",
+        "weather": "clear-day.png",
+        "highTemp": 45.0,
+        "lowTemp": 33.9
+    },
+    {
+        "date": "2024-06-26",
+        "weather": "partly-cloudy-day.png",
+        "highTemp": 46.1,
+        "lowTemp": 35.0
+    },
+    {
+        "date": "2024-06-27",
+        "weather": "overcast.png",
+        "highTemp": 47.2,
+        "lowTemp": 36.1
+    },
+    {
+        "date": "2024-06-28",
+        "weather": "rain-slight.png",
+        "highTemp": 48.3,
+        "lowTemp": 37.2
+    },
+    {
+        "date": "2024-06-29",
+        "weather": "thunderstorms.png",
+        "highTemp": 49.4,
+        "lowTemp": 38.3
+    },
+    {
+        "date": "2024-06-30",
+        "weather": "snowfall.png",
+        "highTemp": 50.6,
+        "lowTemp": 39.4
+    },
+    {
+        "date": "2024-07-01",
+        "weather": "clear-day.png",
+        "highTemp": 21.1,
+        "lowTemp": 10.0
+    },
+    {
+        "date": "2024-07-02",
+        "weather": "partly-cloudy-day.png",
+        "highTemp": 22.2,
+        "lowTemp": 11.1
+    },
+    {
+        "date": "2024-07-03",
+        "weather": "overcast.png",
+        "highTemp": 23.3,
+        "lowTemp": 12.2
+    },
+    {
+        "date": "2024-07-04",
+        "weather": "rain-slight.png",
+        "highTemp": 24.4,
+        "lowTemp": 13.3
+    },
+    {
+        "date": "2024-07-05",
+        "weather": "thunderstorms.png",
+        "highTemp": 25.6,
+        "lowTemp": 14.4
+    },
+    {
+        "date": "2024-07-06",
+        "weather": "snow-showers-night.png",
+        "highTemp": 26.7,
+        "lowTemp": 15.6
+    },
+    {
+        "date": "2024-07-07",
+        "weather": "clear-day.png",
+        "highTemp": 27.8,
+        "lowTemp": 16.7
+    },
+    {
+        "date": "2024-07-08",
+        "weather": "partly-cloudy-day.png",
+        "highTemp": 28.9,
+        "lowTemp": 17.8
+    },
+    {
+        "date": "2024-07-09",
+        "weather": "overcast.png",
+        "highTemp": 30.0,
+        "lowTemp": 18.9
+    },
+    {
+        "date": "2024-07-10",
+        "weather": "rain-slight.png",
+        "highTemp": 31.1,
+        "lowTemp": 20.0
+    },
+    {
+        "date": "2024-07-11",
+        "weather": "thunderstorms.png",
+        "highTemp": 32.2,
+        "lowTemp": 21.1
+    },
+    {
+        "date": "2024-07-12",
+        "weather": "snow-showers-night.png",
+        "highTemp": 33.3,
+        "lowTemp": 22.2
+    },
+    {
+        "date": "2024-07-13",
+        "weather": "clear-day.png",
+        "highTemp": 34.4,
+        "lowTemp": 23.3
+    },
+    {
+        "date": "2024-07-14",
+        "weather": "partly-cloudy-day.png",
+        "highTemp": 35.6,
+        "lowTemp": 24.4
+    },
+    {
+        "date": "2024-07-15",
+        "weather": "overcast.png",
+        "highTemp": 36.7,
+        "lowTemp": 25.6
+    },
+    {
+        "date": "2024-07-16",
+        "weather": "rain-slight.png",
+        "highTemp": 37.8,
+        "lowTemp": 26.7
+    },
+    {
+        "date": "2024-07-17",
+        "weather": "thunderstorms.png",
+        "highTemp": 38.9,
+        "lowTemp": 27.8
+    },
+    {
+        "date": "2024-07-18",
+        "weather": "snowfall.png",
+        "highTemp": 40.0,
+        "lowTemp": 28.9
+    },
+    {
+        "date": "2024-07-19",
+        "weather": "clear-day.png",
+        "highTemp": 41.1,
+        "lowTemp": 30.0
+    },
+    {
+        "date": "2024-07-20",
+        "weather": "partly-cloudy-day.png",
+        "highTemp": 42.2,
+        "lowTemp": 31.1
+    },
+    {
+        "date": "2024-07-21",
+        "weather": "overcast.png",
+        "highTemp": 43.3,
+        "lowTemp": 32.2
+    },
+    {
+        "date": "2024-07-22",
+        "weather": "rain-slight.png",
+        "highTemp": 44.4,
+        "lowTemp": 33.3
+    },
+    {
+        "date": "2024-07-23",
+        "weather": "thunderstorms.png",
+        "highTemp": 45.6,
+        "lowTemp": 34.4
+    },
+    {
+        "date": "2024-07-24",
+        "weather": "snowfall.png",
+        "highTemp": 46.7,
+        "lowTemp": 35.6
+    },
+    {
+        "date": "2024-07-25",
+        "weather": "clear-day.png",
+        "highTemp": 47.8,
+        "lowTemp": 36.7
+    },
+    {
+        "date": "2024-07-26",
+        "weather": "partly-cloudy-day.png",
+        "highTemp": 48.9,
+        "lowTemp": 37.8
+    },
+    {
+        "date": "2024-07-27",
+        "weather": "overcast.png",
+        "highTemp": 50.0,
+        "lowTemp": 38.9
+    },
+    {
+        "date": "2024-07-28",
+        "weather": "rain-slight.png",
+        "highTemp": 51.1,
+        "lowTemp": 40.0
+    },
+    {
+        "date": "2024-07-29",
+        "weather": "thunderstorms.png",
+        "highTemp": 52.2,
+        "lowTemp": 41.1
+    },
+    {
+        "date": "2024-07-30",
+        "weather": "snowfall.png",
+        "highTemp": 53.3,
+        "lowTemp": 42.2
+    },
+    {
+        "date": "2024-07-31",
+        "weather": "clear-day.png",
+        "highTemp": 54.4,
+        "lowTemp": 43.3
+    },
+    {
+        "date": "2024-08-01",
+        "weather": "clear-day.png",
+        "highTemp": 23.9,
+        "lowTemp": 12.8
+    },
+    {
+        "date": "2024-08-02",
+        "weather": "partly-cloudy-day.png",
+        "highTemp": 25.0,
+        "lowTemp": 13.9
+    },
+    {
+        "date": "2024-08-03",
+        "weather": "overcast.png",
+        "highTemp": 26.1,
+        "lowTemp": 15.0
+    },
+    {
+        "date": "2024-08-04",
+        "weather": "rain-slight.png",
+        "highTemp": 27.2,
+        "lowTemp": 16.1
+    },
+    {
+        "date": "2024-08-05",
+        "weather": "thunderstorms.png",
+        "highTemp": 28.3,
+        "lowTemp": 17.2
+    },
+    {
+        "date": "2024-08-06",
+        "weather": "snow-showers-night.png",
+        "highTemp": 29.4,
+        "lowTemp": 18.3
+    },
+    {
+        "date": "2024-08-07",
+        "weather": "clear-day.png",
+        "highTemp": 30.6,
+        "lowTemp": 19.4
+    },
+    {
+        "date": "2024-08-08",
+        "weather": "partly-cloudy-day.png",
+        "highTemp": 31.7,
+        "lowTemp": 20.6
+    },
+    {
+        "date": "2024-08-09",
+        "weather": "overcast.png",
+        "highTemp": 32.8,
+        "lowTemp": 21.7
+    },
+    {
+        "date": "2024-08-10",
+        "weather": "rain-slight.png",
+        "highTemp": 33.9,
+        "lowTemp": 22.8
+    },
+    {
+        "date": "2024-08-11",
+        "weather": "thunderstorms.png",
+        "highTemp": 35.0,
+        "lowTemp": 23.9
+    },
+    {
+        "date": "2024-08-12",
+        "weather": "snow-showers-night.png",
+        "highTemp": 36.1,
+        "lowTemp": 25.0
+    },
+    {
+        "date": "2024-08-13",
+        "weather": "clear-day.png",
+        "highTemp": 37.2,
+        "lowTemp": 26.1
+    },
+    {
+        "date": "2024-08-14",
+        "weather": "partly-cloudy-day.png",
+        "highTemp": 38.3,
+        "lowTemp": 27.2
+    },
+    {
+        "date": "2024-08-15",
+        "weather": "overcast.png",
+        "highTemp": 39.4,
+        "lowTemp": 28.3
+    },
+    {
+        "date": "2024-08-16",
+        "weather": "rain-slight.png",
+        "highTemp": 40.6,
+        "lowTemp": 29.4
+    },
+    {
+        "date": "2024-08-17",
+        "weather": "thunderstorms.png",
+        "highTemp": 41.7,
+        "lowTemp": 30.6
+    },
+    {
+        "date": "2024-08-18",
+        "weather": "snowfall.png",
+        "highTemp": 42.8,
+        "lowTemp": 31.7
+    },
+    {
+        "date": "2024-08-19",
+        "weather": "clear-day.png",
+        "highTemp": 43.9,
+        "lowTemp": 32.8
+    },
+    {
+        "date": "2024-08-20",
+        "weather": "partly-cloudy-day.png",
+        "highTemp": 45.0,
+        "lowTemp": 33.9
+    },
+    {
+        "date": "2024-08-21",
+        "weather": "overcast.png",
+        "highTemp": 46.1,
+        "lowTemp": 35.0
+    },
+    {
+        "date": "2024-08-22",
+        "weather": "rain-slight.png",
+        "highTemp": 47.2,
+        "lowTemp": 36.1
+    },
+    {
+        "date": "2024-08-23",
+        "weather": "thunderstorms.png",
+        "highTemp": 48.3,
+        "lowTemp": 37.2
+    },
+    {
+        "date": "2024-08-24",
+        "weather": "snowfall.png",
+        "highTemp": 49.4,
+        "lowTemp": 38.3
+    },
+    {
+        "date": "2024-08-25",
+        "weather": "clear-day.png",
+        "highTemp": 50.6,
+        "lowTemp": 39.4
+    },
+    {
+        "date": "2024-08-26",
+        "weather": "partly-cloudy-day.png",
+        "highTemp": 51.7,
+        "lowTemp": 40.6
+    },
+    {
+        "date": "2024-08-27",
+        "weather": "overcast.png",
+        "highTemp": 52.8,
+        "lowTemp": 41.7
+    },
+    {
+        "date": "2024-08-28",
+        "weather": "rain-slight.png",
+        "highTemp": 53.9,
+        "lowTemp": 42.8
+    },
+    {
+        "date": "2024-08-29",
+        "weather": "thunderstorms.png",
+        "highTemp": 55.0,
+        "lowTemp": 43.9
+    },
+    {
+        "date": "2024-08-30",
+        "weather": "snowfall.png",
+        "highTemp": 56.1,
+        "lowTemp": 45.0
+    },
+    {
+        "date": "2024-08-31",
+        "weather": "clear-day.png",
+        "highTemp": 57.2,
+        "lowTemp": 46.1
+    },
+    {
+        "date": "2024-09-01",
+        "weather": "clear-day.png",
+        "highTemp": 26.7,
+        "lowTemp": 15.6
+    },
+    {
+        "date": "2024-09-02",
+        "weather": "partly-cloudy-day.png",
+        "highTemp": 27.8,
+        "lowTemp": 16.7
+    },
+    {
+        "date": "2024-09-03",
+        "weather": "overcast.png",
+        "highTemp": 28.9,
+        "lowTemp": 17.8
+    },
+    {
+        "date": "2024-09-04",
+        "weather": "rain-slight.png",
+        "highTemp": 30.0,
+        "lowTemp": 18.9
+    },
+    {
+        "date": "2024-09-05",
+        "weather": "thunderstorms.png",
+        "highTemp": 31.1,
+        "lowTemp": 20.0
+    },
+    {
+        "date": "2024-09-06",
+        "weather": "snow-showers-night.png",
+        "highTemp": 32.2,
+        "lowTemp": 21.1
+    },
+    {
+        "date": "2024-09-07",
+        "weather": "clear-day.png",
+        "highTemp": 33.3,
+        "lowTemp": 22.2
+    },
+    {
+        "date": "2024-09-08",
+        "weather": "partly-cloudy-day.png",
+        "highTemp": 34.4,
+        "lowTemp": 23.3
+    },
+    {
+        "date": "2024-09-09",
+        "weather": "overcast.png",
+        "highTemp": 35.6,
+        "lowTemp": 24.4
+    },
+    {
+        "date": "2024-09-10",
+        "weather": "rain-slight.png",
+        "highTemp": 36.7,
+        "lowTemp": 25.6
+    },
+    {
+        "date": "2024-09-11",
+        "weather": "thunderstorms.png",
+        "highTemp": 37.8,
+        "lowTemp": 26.7
+    },
+    {
+        "date": "2024-09-12",
+        "weather": "snow-showers-night.png",
+        "highTemp": 38.9,
+        "lowTemp": 27.8
+    },
+    {
+        "date": "2024-09-13",
+        "weather": "clear-day.png",
+        "highTemp": 40.0,
+        "lowTemp": 28.9
+    },
+    {
+        "date": "2024-09-14",
+        "weather": "partly-cloudy-day.png",
+        "highTemp": 41.1,
+        "lowTemp": 30.0
+    },
+    {
+        "date": "2024-09-15",
+        "weather": "overcast.png",
+        "highTemp": 42.2,
+        "lowTemp": 31.1
+    },
+    {
+        "date": "2024-09-16",
+        "weather": "rain-slight.png",
+        "highTemp": 43.3,
+        "lowTemp": 32.2
+    },
+    {
+        "date": "2024-09-17",
+        "weather": "thunderstorms.png",
+        "highTemp": 44.4,
+        "lowTemp": 33.3
+    },
+    {
+        "date": "2024-09-18",
+        "weather": "snowfall.png",
+        "highTemp": 45.6,
+        "lowTemp": 34.4
+    },
+    {
+        "date": "2024-09-19",
+        "weather": "clear-day.png",
+        "highTemp": 46.7,
+        "lowTemp": 35.6
+    },
+    {
+        "date": "2024-09-20",
+        "weather": "partly-cloudy-day.png",
+        "highTemp": 47.8,
+        "lowTemp": 36.7
+    },
+    {
+        "date": "2024-09-21",
+        "weather": "overcast.png",
+        "highTemp": 48.9,
+        "lowTemp": 37.8
+    },
+    {
+        "date": "2024-09-22",
+        "weather": "rain-slight.png",
+        "highTemp": 50.0,
+        "lowTemp": 38.9
+    },
+    {
+        "date": "2024-09-23",
+        "weather": "thunderstorms.png",
+        "highTemp": 51.1,
+        "lowTemp": 40.0
+    },
+    {
+        "date": "2024-09-24",
+        "weather": "snowfall.png",
+        "highTemp": 52.2,
+        "lowTemp": 41.1
+    },
+    {
+        "date": "2024-09-25",
+        "weather": "clear-day.png",
+        "highTemp": 53.3,
+        "lowTemp": 42.2
+    },
+    {
+        "date": "2024-09-26",
+        "weather": "partly-cloudy-day.png",
+        "highTemp": 54.4,
+        "lowTemp": 43.3
+    },
+    {
+        "date": "2024-09-27",
+        "weather": "overcast.png",
+        "highTemp": 55.6,
+        "lowTemp": 44.4
+    },
+    {
+        "date": "2024-09-28",
+        "weather": "rain-slight.png",
+        "highTemp": 56.7,
+        "lowTemp": 45.6
+    },
+    {
+        "date": "2024-09-29",
+        "weather": "thunderstorms.png",
+        "highTemp": 57.8,
+        "lowTemp": 46.7
+    },
+    {
+        "date": "2024-09-30",
+        "weather": "snowfall.png",
+        "highTemp": 58.9,
+        "lowTemp": 47.8
+    },
+    {
+        "date": "2024-10-01",
+        "weather": "clear-day.png",
+        "highTemp": 21.1,
+        "lowTemp": 10.0
+    },
+    {
+        "date": "2024-10-02",
+        "weather": "partly-cloudy-day.png",
+        "highTemp": 22.2,
+        "lowTemp": 11.1
+    },
+    {
+        "date": "2024-10-03",
+        "weather": "overcast.png",
+        "highTemp": 23.3,
+        "lowTemp": 12.2
+    },
+    {
+        "date": "2024-10-04",
+        "weather": "rain-slight.png",
+        "highTemp": 24.4,
+        "lowTemp": 13.3
+    },
+    {
+        "date": "2024-10-05",
+        "weather": "thunderstorms.png",
+        "highTemp": 25.6,
+        "lowTemp": 14.4
+    },
+    {
+        "date": "2024-10-06",
+        "weather": "snow-showers-night.png",
+        "highTemp": 26.7,
+        "lowTemp": 15.6
+    },
+    {
+        "date": "2024-10-07",
+        "weather": "clear-day.png",
+        "highTemp": 27.8,
+        "lowTemp": 16.7
+    },
+    {
+        "date": "2024-10-08",
+        "weather": "partly-cloudy-day.png",
+        "highTemp": 28.9,
+        "lowTemp": 17.8
+    },
+    {
+        "date": "2024-10-09",
+        "weather": "overcast.png",
+        "highTemp": 30.0,
+        "lowTemp": 18.9
+    },
+    {
+        "date": "2024-10-10",
+        "weather": "rain-slight.png",
+        "highTemp": 31.1,
+        "lowTemp": 20.0
+    },
+    {
+        "date": "2024-10-11",
+        "weather": "thunderstorms.png",
+        "highTemp": 32.2,
+        "lowTemp": 21.1
+    },
+    {
+        "date": "2024-10-12",
+        "weather": "snow-showers-night.png",
+        "highTemp": 33.3,
+        "lowTemp": 22.2
+    },
+    {
+        "date": "2024-10-13",
+        "weather": "clear-day.png",
+        "highTemp": 34.4,
+        "lowTemp": 23.3
+    },
+    {
+        "date": "2024-10-14",
+        "weather": "partly-cloudy-day.png",
+        "highTemp": 35.6,
+        "lowTemp": 24.4
+    },
+    {
+        "date": "2024-10-15",
+        "weather": "overcast.png",
+        "highTemp": 36.7,
+        "lowTemp": 25.6
+    },
+    {
+        "date": "2024-10-16",
+        "weather": "rain-slight.png",
+        "highTemp": 37.8,
+        "lowTemp": 26.7
+    },
+    {
+        "date": "2024-10-17",
+        "weather": "thunderstorms.png",
+        "highTemp": 38.9,
+        "lowTemp": 27.8
+    },
+    {
+        "date": "2024-10-18",
+        "weather": "snowfall.png",
+        "highTemp": 40.0,
+        "lowTemp": 28.9
+    },
+    {
+        "date": "2024-10-19",
+        "weather": "clear-day.png",
+        "highTemp": 41.1,
+        "lowTemp": 30.0
+    },
+    {
+        "date": "2024-10-20",
+        "weather": "partly-cloudy-day.png",
+        "highTemp": 42.2,
+        "lowTemp": 31.1
+    },
+    {
+        "date": "2024-10-21",
+        "weather": "overcast.png",
+        "highTemp": 43.3,
+        "lowTemp": 32.2
+    },
+    {
+        "date": "2024-10-22",
+        "weather": "rain-slight.png",
+        "highTemp": 44.4,
+        "lowTemp": 33.3
+    },
+    {
+        "date": "2024-10-23",
+        "weather": "thunderstorms.png",
+        "highTemp": 45.6,
+        "lowTemp": 34.4
+    },
+    {
+        "date": "2024-10-24",
+        "weather": "snowfall.png",
+        "highTemp": 46.7,
+        "lowTemp": 35.6
+    },
+    {
+        "date": "2024-10-25",
+        "weather": "clear-day.png",
+        "highTemp": 47.8,
+        "lowTemp": 36.7
+    },
+    {
+        "date": "2024-10-26",
+        "weather": "partly-cloudy-day.png",
+        "highTemp": 48.9,
+        "lowTemp": 37.8
+    },
+    {
+        "date": "2024-10-27",
+        "weather": "overcast.png",
+        "highTemp": 50.0,
+        "lowTemp": 38.9
+    },
+    {
+        "date": "2024-10-28",
+        "weather": "rain-slight.png",
+        "highTemp": 51.1,
+        "lowTemp": 40.0
+    },
+    {
+        "date": "2024-10-29",
+        "weather": "thunderstorms.png",
+        "highTemp": 52.2,
+        "lowTemp": 41.1
+    },
+    {
+        "date": "2024-10-30",
+        "weather": "snowfall.png",
+        "highTemp": 53.3,
+        "lowTemp": 42.2
+    },
+    {
+        "date": "2024-10-31",
+        "weather": "clear-day.png",
+        "highTemp": 54.4,
+        "lowTemp": 43.3
+    },
+    {
+        "date": "2024-11-01",
+        "weather": "clear-day.png",
+        "highTemp": 15.6,
+        "lowTemp": 4.4
+    },
+    {
+        "date": "2024-11-02",
+        "weather": "partly-cloudy-day.png",
+        "highTemp": 16.7,
+        "lowTemp": 5.6
+    },
+    {
+        "date": "2024-11-03",
+        "weather": "overcast.png",
+        "highTemp": 17.8,
+        "lowTemp": 6.7
+    },
+    {
+        "date": "2024-11-04",
+        "weather": "rain-slight.png",
+        "highTemp": 18.9,
+        "lowTemp": 7.8
+    },
+    {
+        "date": "2024-11-05",
+        "weather": "thunderstorms.png",
+        "highTemp": 20.0,
+        "lowTemp": 8.9
+    },
+    {
+        "date": "2024-11-06",
+        "weather": "snow-showers-night.png",
+        "highTemp": 21.1,
+        "lowTemp": 10.0
+    },
+    {
+        "date": "2024-11-07",
+        "weather": "clear-day.png",
+        "highTemp": 22.2,
+        "lowTemp": 11.1
+    },
+    {
+        "date": "2024-11-08",
+        "weather": "partly-cloudy-day.png",
+        "highTemp": 23.3,
+        "lowTemp": 12.2
+    },
+    {
+        "date": "2024-11-09",
+        "weather": "overcast.png",
+        "highTemp": 24.4,
+        "lowTemp": 13.3
+    },
+    {
+        "date": "2024-11-10",
+        "weather": "rain-slight.png",
+        "highTemp": 25.6,
+        "lowTemp": 14.4
+    },
+    {
+        "date": "2024-11-11",
+        "weather": "thunderstorms.png",
+        "highTemp": 26.7,
+        "lowTemp": 15.6
+    },
+    {
+        "date": "2024-11-12",
+        "weather": "snowfall.png",
+        "highTemp": 27.8,
+        "lowTemp": 16.7
+    },
+    {
+        "date": "2024-11-13",
+        "weather": "clear-day.png",
+        "highTemp": 28.9,
+        "lowTemp": 17.8
+    },
+    {
+        "date": "2024-11-14",
+        "weather": "partly-cloudy-day.png",
+        "highTemp": 30.0,
+        "lowTemp": 18.9
+    },
+    {
+        "date": "2024-11-15",
+        "weather": "overcast.png",
+        "highTemp": 31.1,
+        "lowTemp": 20.0
+    },
+    {
+        "date": "2024-11-16",
+        "weather": "rain-slight.png",
+        "highTemp": 32.2,
+        "lowTemp": 21.1
+    },
+    {
+        "date": "2024-11-17",
+        "weather": "thunderstorms.png",
+        "highTemp": 33.3,
+        "lowTemp": 22.2
+    },
+    {
+        "date": "2024-11-18",
+        "weather": "snowfall.png",
+        "highTemp": 34.4,
+        "lowTemp": 23.3
+    },
+    {
+        "date": "2024-11-19",
+        "weather": "clear-day.png",
+        "highTemp": 35.6,
+        "lowTemp": 24.4
+    },
+    {
+        "date": "2024-11-20",
+        "weather": "partly-cloudy-day.png",
+        "highTemp": 36.7,
+        "lowTemp": 25.6
+    },
+    {
+        "date": "2024-11-21",
+        "weather": "overcast.png",
+        "highTemp": 37.8,
+        "lowTemp": 26.7
+    },
+    {
+        "date": "2024-11-22",
+        "weather": "rain-slight.png",
+        "highTemp": 38.9,
+        "lowTemp": 27.8
+    },
+    {
+        "date": "2024-11-23",
+        "weather": "thunderstorms.png",
+        "highTemp": 40.0,
+        "lowTemp": 28.9
+    },
+    {
+        "date": "2024-11-24",
+        "weather": "snowfall.png",
+        "highTemp": 41.1,
+        "lowTemp": 30.0
+    },
+    {
+        "date": "2024-11-25",
+        "weather": "clear-day.png",
+        "highTemp": 42.2,
+        "lowTemp": 31.1
+    },
+    {
+        "date": "2024-11-26",
+        "weather": "partly-cloudy-day.png",
+        "highTemp": 43.3,
+        "lowTemp": 32.2
+    },
+    {
+        "date": "2024-11-27",
+        "weather": "overcast.png",
+        "highTemp": 44.4,
+        "lowTemp": 33.3
+    },
+    {
+        "date": "2024-11-28",
+        "weather": "rain-slight.png",
+        "highTemp": 45.6,
+        "lowTemp": 34.4
+    },
+    {
+        "date": "2024-11-29",
+        "weather": "thunderstorms.png",
+        "highTemp": 46.7,
+        "lowTemp": 35.6
+    },
+    {
+        "date": "2024-11-30",
+        "weather": "snowfall.png",
+        "highTemp": 47.8,
+        "lowTemp": 36.7
+    },
+    {
+        "date": "2024-12-01",
+        "weather": "clear-day.png",
+        "highTemp": 18.3,
+        "lowTemp": 7.2
+    },
+    {
+        "date": "2024-12-02",
+        "weather": "partly-cloudy-day.png",
+        "highTemp": 15.6,
+        "lowTemp": 4.4
+    },
+    {
+        "date": "2024-12-03",
+        "weather": "overcast.png",
+        "highTemp": 12.8,
+        "lowTemp": 1.7
+    },
+    {
+        "date": "2024-12-04",
+        "weather": "rain-slight.png",
+        "highTemp": 10.0,
+        "lowTemp": -1.1
+    },
+    {
+        "date": "2024-12-05",
+        "weather": "thunderstorms.png",
+        "highTemp": 7.2,
+        "lowTemp": -3.9
+    },
+    {
+        "date": "2024-12-06",
+        "weather": "snow-showers-night.png",
+        "highTemp": 4.4,
+        "lowTemp": -6.7
+    },
+    {
+        "date": "2024-12-07",
+        "weather": "clear-day.png",
+        "highTemp": 18.3,
+        "lowTemp": 7.2
+    },
+    {
+        "date": "2024-12-08",
+        "weather": "partly-cloudy-day.png",
+        "highTemp": 15.6,
+        "lowTemp": 4.4
+    },
+    {
+        "date": "2024-12-09",
+        "weather": "overcast.png",
+        "highTemp": 12.8,
+        "lowTemp": 1.7
+    },
+    {
+        "date": "2024-12-10",
+        "weather": "rain-slight.png",
+        "highTemp": 10.0,
+        "lowTemp": -1.1
+    },
+    {
+        "date": "2024-12-11",
+        "weather": "thunderstorms.png",
+        "highTemp": 7.2,
+        "lowTemp": -3.9
+    },
+    {
+        "date": "2024-12-12",
+        "weather": "snowfall.png",
+        "highTemp": 4.4,
+        "lowTemp": -6.7
+    },
+    {
+        "date": "2024-12-13",
+        "weather": "clear-day.png",
+        "highTemp": 18.3,
+        "lowTemp": 7.2
+    },
+    {
+        "date": "2024-12-14",
+        "weather": "partly-cloudy-day.png",
+        "highTemp": 15.6,
+        "lowTemp": 4.4
+    },
+    {
+        "date": "2024-12-15",
+        "weather": "overcast.png",
+        "highTemp": 12.8,
+        "lowTemp": 1.7
+    },
+    {
+        "date": "2024-12-16",
+        "weather": "rain-slight.png",
+        "highTemp": 10.0,
+        "lowTemp": -1.1
+    },
+    {
+        "date": "2024-12-17",
+        "weather": "thunderstorms.png",
+        "highTemp": 7.2,
+        "lowTemp": -3.9
+    },
+    {
+        "date": "2024-12-18",
+        "weather": "snowfall.png",
+        "highTemp": 4.4,
+        "lowTemp": -6.7
+    },
+    {
+        "date": "2024-12-19",
+        "weather": "clear-day.png",
+        "highTemp": 18.3,
+        "lowTemp": 7.2
+    },
+    {
+        "date": "2024-12-20",
+        "weather": "partly-cloudy-day.png",
+        "highTemp": 15.6,
+        "lowTemp": 4.4
+    },
+    {
+        "date": "2024-12-21",
+        "weather": "overcast.png",
+        "highTemp": 12.8,
+        "lowTemp": 1.7
+    },
+    {
+        "date": "2024-12-22",
+        "weather": "rain-slight.png",
+        "highTemp": 10.0,
+        "lowTemp": -1.1
+    },
+    {
+        "date": "2024-12-23",
+        "weather": "thunderstorms.png",
+        "highTemp": 7.2,
+        "lowTemp": -3.9
+    },
+    {
+        "date": "2024-12-24",
+        "weather": "snowfall.png",
+        "highTemp": 4.4,
+        "lowTemp": -6.7
+    },
+    {
+        "date": "2024-12-25",
+        "weather": "clear-day.png",
+        "highTemp": 18.3,
+        "lowTemp": 7.2
+    },
+    {
+        "date": "2024-12-26",
+        "weather": "partly-cloudy-day.png",
+        "highTemp": 15.6,
+        "lowTemp": 4.4
+    },
+    {
+        "date": "2024-12-27",
+        "weather": "overcast.png",
+        "highTemp": 12.8,
+        "lowTemp": 1.7
+    },
+    {
+        "date": "2024-12-28",
+        "weather": "rain-slight.png",
+        "highTemp": 10.0,
+        "lowTemp": -1.1
+    },
+    {
+        "date": "2024-12-29",
+        "weather": "thunderstorms.png",
+        "highTemp": 7.2,
+        "lowTemp": -3.9
+    },
+    {
+        "date": "2024-12-30",
+        "weather": "snowfall.png",
+        "highTemp": 4.4,
+        "lowTemp": -6.7
+    }
 ]
