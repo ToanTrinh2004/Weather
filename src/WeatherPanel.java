@@ -150,8 +150,10 @@ public class WeatherPanel extends JPanel {
         add(hourlyPanel);
 
         fetchAndDisplayWeatherData(latitude, longitude, name,index);
-
-
+        
+        monthlyForecast = new MonthlyForecast();
+        monthlyForecast.setBounds(150, 2450, 935, 950);
+        add(monthlyForecast);
 
     }
 
