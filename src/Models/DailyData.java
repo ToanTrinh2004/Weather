@@ -4,15 +4,17 @@ public class DailyData {
     private int minTmp;      // Minimum temperature
     private String time;     // Time (e.g., date or specific time)
     private double chance;   // Chance (e.g., chance of rain)
-    private String condition; // Weather condition (e.g., Sunny, Rainy)
+    private int condition; // Weather condition (e.g., Sunny, Rainy)
+    private boolean status;
 
     // Constructor
-    public DailyData(int maxTmp, int minTmp, String time, double chance, String condition) {
+    public DailyData(int maxTmp, int minTmp, String time, double chance, int condition,boolean status) {
         this.maxTmp = maxTmp;
         this.minTmp = minTmp;
         this.time = time;
         this.chance = chance;
         this.condition = condition;
+        this.status = status;
     }
 
     // Getters and Setters
@@ -48,14 +50,21 @@ public class DailyData {
         this.chance = chance;
     }
 
-    public String getCondition() {
+    public int getCondition() {
         return condition;
     }
 
-    public void setCondition(String condition) {
+    public void setCondition(int condition) {
         this.condition = condition;
     }
 
     // toString() method for displaying object data
 
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
 }

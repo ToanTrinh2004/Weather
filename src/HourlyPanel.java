@@ -9,33 +9,21 @@ import java.util.ArrayList;
 public class HourlyPanel extends JPanel {
     private JPanel hourlyComponentContainer = new JPanel();
     private ArrayList<HourlyCoponent> hourlyComponents = new ArrayList<>(); // Store hourly components
-
-    // Constructor: Initialize components but leave them empty
+    private  HourlyHeader header = new HourlyHeader();
     public HourlyPanel() {
         setLayout(new BorderLayout()); // Use BorderLayout to center the container
         setPreferredSize(new Dimension(1000, 800)); // Adjust initial size if needed
-
         // Configure hourlyComponentContainer
         hourlyComponentContainer.setLayout(new BoxLayout(hourlyComponentContainer, BoxLayout.Y_AXIS));
         hourlyComponentContainer.setBorder(new EmptyBorder(20, 30, 20, 30)); // Add padding
         hourlyComponentContainer.setAlignmentX(Component.CENTER_ALIGNMENT);
         hourlyComponentContainer.setOpaque(false);
-
         // Add hourlyComponentContainer directly to the panel
         add(hourlyComponentContainer, BorderLayout.CENTER);
-        // Sample data
-        ArrayList<DailyData> sampleData = new ArrayList<>();
-        sampleData.add(new DailyData(30, 10, "Today", 0.2, "Mostly Cloudy"));
-
-        // Add HourlyHeader for each DailyData
-        for (DailyData data : sampleData) {
-            HourlyHeader header = new HourlyHeader(data);
-            header.setBackground(Color.cyan);
-            header.setOpaque(true);
-            header.setSize(1000,150);
-            hourlyComponentContainer.add(header);
-        }
-
+        header.setBackground(Color.cyan);
+        header.setOpaque(true);
+        header.setSize(1000,150);
+        hourlyComponentContainer.add(header);
         // Initialize empty HourlyCoponent components
         for (int i = 0; i < 24; i++) {
             HourlyCoponent m = new HourlyCoponent("", 0, 0.0, 0.0, 0.0, 0.0, 0.0);
@@ -50,11 +38,10 @@ public class HourlyPanel extends JPanel {
     }
 
     // Function to update the existing components with new data
-    public void fetchData(HourlyData data) {
+    public void fetchData(HourlyData data , DailyData daily) {
         // Update each HourlyCoponent with new data
         for (int i = 0; i < hourlyComponents.size(); i++) {
             HourlyCoponent m = hourlyComponents.get(i);
-
             // Update the text and values for the component
             m.updateComponent(
                     data.getHourlyTime().get(i),
@@ -63,9 +50,12 @@ public class HourlyPanel extends JPanel {
                     data.getHourlyDewPoint().get(i),
                     data.getHourlyRainyChance().get(i),
                     data.getHourlyVisibility().get(i),
-                    data.getHourlyWindspeed().get(i)
+                    data.getHourlyWindspeed().get(i),
+                    data.isStatus()
             );
         }
+        header.update(daily);
+        System.out.println("already repain ///");
 
         // Refresh the panel to ensure the updated values are displayed
         revalidate();

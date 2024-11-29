@@ -12,6 +12,7 @@ public class HourlyData {
     private ArrayList<Double> hourlyPressure;       // Surface pressure for each hour
     private ArrayList<Double> hourlyVisibility;     // Visibility for each hour
     private ArrayList<Double> hourlyWindspeed;      // Wind speed for each hour
+    private boolean status;
 
     // Constructor to initialize all ArrayLists
     public HourlyData() {
@@ -24,6 +25,7 @@ public class HourlyData {
         this.hourlyPressure = new ArrayList<>();
         this.hourlyVisibility = new ArrayList<>();
         this.hourlyWindspeed = new ArrayList<>();
+        this.status = false;
     }
 
     // Getters and Setters for each attribute
@@ -97,5 +99,13 @@ public class HourlyData {
 
     public void setHourlyWindspeed(ArrayList<Double> hourlyWindspeed) {
         this.hourlyWindspeed = hourlyWindspeed;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 }

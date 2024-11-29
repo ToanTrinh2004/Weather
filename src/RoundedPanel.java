@@ -57,6 +57,4 @@ public class RoundedPanel extends JPanel {
         repaint();
     }
 
-    // Test main method to display the rounded panel
-
 }

@@ -20,8 +20,6 @@ public class Home_Header extends JPanel {
     JButton pin = new JButton();
     JButton favorites = new JButton();
     JButton search = new JButton();
-
-    // Add a JList for displaying suggestions
     private final Home home;
 
 
@@ -62,13 +60,7 @@ public class Home_Header extends JPanel {
         addCustomHoverEffectToSearchButton(search);
         add(search);
         search.setBounds(1170, 5, 60, 40);
-
-        // Search textfield
-
-
-        // Initialize the suggestion list
     }
-    // Method to style the buttons (general for all buttons)
     private void setButtonStyle(JButton button, String iconPath, int xPosition) {
         ImageIcon icon = new ImageIcon(Objects.requireNonNull(Home_Header.class.getResource(iconPath)));
         Image img = icon.getImage();

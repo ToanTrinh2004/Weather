@@ -23,16 +23,13 @@ public class LocationNavBar extends JPanel {
 
         refreshButtons(); // Initial load of buttons
     }
-
     // Method to refresh the buttons based on the current location list
     public void refreshButtons() {
         removeAll(); // Clear existing buttons
         for (int i = 0; i < locationList.size(); i++) {
             WeatherData location = locationList.get(i);
-
             // Use LocationButton instead of the regular JButton
             LocationButton locationButton = new LocationButton(location.getName(), location.getIndex());
-
             // Add action listener to update WeatherPanel on button click
             locationButton.addActionListener(new ActionListener() {
                 @Override

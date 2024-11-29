@@ -1,7 +1,5 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.Objects;
 
 public class LocationPanel extends JPanel {
@@ -53,18 +51,9 @@ public class LocationPanel extends JPanel {
                 // Call the method in WeatherPanel to swap locations in Home
                 WeatherPanel weatherPanel = (WeatherPanel) getParent(); // Assuming WeatherPanel is the parent of LocationPanel
                 if (weatherPanel != null) {
-
                 }
             });
         }
     }
 
-    // Swap the location with index 0
-    private void swapLocationWithFirst() {
-        // Call the swapLocation method in Home class
-        if (index != 0) {
-            homeFrame.swapLocation(index, 0); // Swap locations in the Home class
-            homeFrame.updateWeatherPanelFromLatest(); // Update the weather panel with the new first location
-        }
-    }
 }

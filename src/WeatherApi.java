@@ -6,10 +6,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.Scanner;
 public class WeatherApi {
-    // Your existing getLocationData method here
     public static JSONObject getWeatherData(double latitude, double longitude){
         // extract latitude and longitude data
 
@@ -206,34 +204,5 @@ public class WeatherApi {
         // could not make connection
         return null;
     }
-    private static int findIndexOfCurrentTime(JSONArray timeList){
-        String currentTime = getCurrentTime();
-
-        // iterate through the time list and see which one matches our current time
-        for(int i = 0; i < timeList.size(); i++){
-            String time = (String) timeList.get(i);
-            if(time.equalsIgnoreCase(currentTime)){
-                // return the index
-                return i;
-            }
-        }
-
-        return 0;
-    }
-
-    private static String getCurrentTime(){
-        // get current date and time
-        LocalDateTime currentDateTime = LocalDateTime.now();
-
-        // format date to be 2023-09-02T00:00 (this is how is is read in the API)
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH':00'");
-
-        // format and print the current date and time
-        String formattedDateTime = currentDateTime.format(formatter);
-
-        return formattedDateTime;
-    }
-
-    // convert the weather code to something more readable
 
 }

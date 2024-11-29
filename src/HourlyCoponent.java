@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.Objects;
 
 public class HourlyCoponent extends JPanel {
     private JLabel TimeLabel = new JLabel();
@@ -56,15 +57,27 @@ public class HourlyCoponent extends JPanel {
         g2d.setStroke(new BasicStroke(2));
         g2d.drawLine(0, getHeight() - 1, getWidth(), getHeight() - 1);
     }
-    public void updateComponent(String time, Number code, Number tmp, Number dewPoint, Number chance, Number visibility, Number windSpeed) {
+    public void updateComponent(String time, Number code, Number tmp, Number dewPoint, Number chance, Number visibility, Number windSpeed,boolean status) {
         // Update each label's text
+        System.out.println(WeatherPanel.getWeatherImagePath(code.intValue(), status));
         TimeLabel.setText(time.substring(11, 16));
         Condition.setText(WeatherPanel.getWeatherDescription(code.intValue()));
+        Condition.setIcon(
+                WeatherPanel.resizeImageIcon(
+                        new ImageIcon(Objects.requireNonNull(
+                                WeatherPanel.class.getResource(WeatherPanel.getWeatherImagePath(code.intValue(), status))
+                        )),
+                        30, // Width
+                        30  // Height
+                )
+        );
         TempLabel.setText(tmp + "°C");
         RainyLabel.setText(chance + "%");
+        RainyLabel.setIcon(WeatherPanel.resizeImageIcon(new ImageIcon(Objects.requireNonNull(WeatherPanel.class.getResource("/Assets/rainyChance.png"))),20,20));
         VisibleLabel.setText((visibility.doubleValue() / 1000.0) + " km");
+        VisibleLabel.setIcon(WeatherPanel.resizeImageIcon(new ImageIcon(Objects.requireNonNull(WeatherPanel.class.getResource("/Assets/eye.png"))),20,20));
         WindSpeed.setText(windSpeed + " km/h");
-
+        WindSpeed.setIcon(WeatherPanel.resizeImageIcon(new ImageIcon(Objects.requireNonNull(WeatherPanel.class.getResource("/Assets/windy.png"))),20,20));
         // Refresh the panel to reflect changes
         revalidate();
         repaint();

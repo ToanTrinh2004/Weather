@@ -13,7 +13,6 @@ import java.util.Locale;
 import java.util.Objects;
 
 public class WeatherPanel extends JPanel {
-    private boolean status = true;
     private final CustomLabel nameLabel;
     private final CustomLabel temperatureLabel;
     private final CustomLabel weatherConditionLabel;
@@ -45,14 +44,9 @@ public class WeatherPanel extends JPanel {
     private HourlyPanel hourlyPanel;
     private WeatherMap m;
     private WeatherMap cl;
-
-
-
-
-
     // Constructor for the WeatherPanel
     public WeatherPanel(double latitude, double longitude, String name,int index,Home home) {
-        setLayout(null); // 8 rows, 1 column, spacing of 10
+        setLayout(null);
         setBackground(Color.decode("#D6E7FA"));
         // Location title
         LocationTitle  = new LocationPanel();
@@ -121,19 +115,21 @@ public class WeatherPanel extends JPanel {
         dailypanel.setBounds(130,400,1100,100);
         dailypanel.setOpaque(false);
         add(dailypanel);
+        hourlyPanel = new HourlyPanel();
+        hourlyPanel.setBounds(125,530,990,1900);
+        hourlyPanel.setOpaque(false);
+        add(hourlyPanel);
         try {
             for (int i = 0; i < 5; i++) {
-                DailyButton b = new DailyButton();
+                DailyButton b = new DailyButton(hourlyPanel);
                 dailyButtons.add(b);
                 dailypanel.add(b);
             }
-
         } catch (IndexOutOfBoundsException e) {
             System.out.println("Index out of bounds: " + e.getMessage());
         } catch (Exception e) {
             System.out.println("An error occurred: " + e.getMessage());
         }
-        // Set action to fetch and display weather data on button click
         // Initial load of weather data
         m = new WeatherMap(longitude,latitude,"TA2");
         cl = new WeatherMap(longitude,latitude,"CL");
@@ -141,18 +137,7 @@ public class WeatherPanel extends JPanel {
         add(cl);
         cl.setBounds(790,70,300,300);
         m.setBounds(470,70,300,300);
-//        monthlyForecast = new MonthlyForecast();
-//        monthlyForecast.setBounds(140,500,1000,1000);
-//        add(monthlyForecast);
-        hourlyPanel = new HourlyPanel();
-        hourlyPanel.setBounds(125,530,990,1900);
-        hourlyPanel.setOpaque(false);
-        add(hourlyPanel);
-
         fetchAndDisplayWeatherData(latitude, longitude, name,index);
-
-
-
     }
 
 
@@ -172,7 +157,17 @@ public class WeatherPanel extends JPanel {
             temperatureLabel.setText(String.valueOf(weatherData.get("temperature"))+"\u00B0C"); // set current temperature
             int weatherCode = (int) weatherData.get("weather_condition"); // get condition base on weather code
             weatherConditionLabel.setText(getWeatherDescription(weatherCode)); // set weather condition
-            weatherIcon.setIcon(new ImageIcon(Objects.requireNonNull(WeatherPanel.class.getResource("/Assets/cloudy.png")))); // set icon for current panel
+
+            weatherIcon.setIcon(
+                    resizeImageIcon(
+                            new ImageIcon(Objects.requireNonNull(
+                                    WeatherPanel.class.getResource(getWeatherImagePath(weatherCode, status))
+                            )),
+                            80, // Width
+                            80  // Height
+                    )
+            );
+
 
             humidityLabel.twoRowDisplay("Humidity",weatherData.get("humidity"),"%"); // set current humid value
             windSpeedLabel.twoRowDisplay("Wind speed",weatherData.get("windspeed"),"km/h"); // set current wind speed
@@ -188,17 +183,7 @@ public class WeatherPanel extends JPanel {
             JSONArray dailyMinTmpArray = (JSONArray) weatherData.get("DailyMinTemperature");
             JSONArray dailyWeatherCode = (JSONArray) weatherData.get("DailyWeatherCode");
             JSONArray dailyRainyArray = (JSONArray) weatherData.get("DailyRainyChance");
-            for (int i = 0; i < 5; i++) {
-                String days = formatDate(dailyTimeArray.get(i).toString()); //
-                int maxtmp = (int) Math.round((double) dailyMaxTmpArray.get(i));
-                int mintmp = (int) Math.round((double) dailyMinTmpArray.get(i));
-                int code = ((Number) dailyWeatherCode.get(i)).intValue();
-                double chance = (double) dailyRainyArray.get(i);
-                DailyData data = new DailyData(maxtmp, mintmp, days, chance, getWeatherDescription(code));
-                dailyDataList.add(data);
-                dailyButtons.get(i).fetchData(data);
-            }
-            dailyButtons.get(0).handleClick();
+
 
             // Hourly
             JSONArray hourlyTimeArray = (JSONArray) weatherData.get("HourlyTime");
@@ -229,12 +214,26 @@ public class WeatherPanel extends JPanel {
                 h.setHourlyWeatherCode(getSubList(hourlyWeatherCodeArray, start, end));
                 h.setHourlyVisibility(getSubList(hourlyVisibilityArray, start, end));
                 h.setHourlyWindspeed(getSubList(hourlyWindspeedArray, start, end));
+                h.setStatus(status);
 
                 hourlyDataList.add(h);}
-            hourlyPanel.fetchData(hourlyDataList.get(0));
+
             // update new map
             m.fetchMap(longitude,latitude);
             cl.fetchMap(longitude,latitude);
+            for (int i = 0; i < 5; i++) {
+                String days = formatDate(dailyTimeArray.get(i).toString()); //
+                int maxtmp = (int) Math.round((double) dailyMaxTmpArray.get(i));
+                int mintmp = (int) Math.round((double) dailyMinTmpArray.get(i));
+                int code = ((Number) dailyWeatherCode.get(i)).intValue();
+                double chance = (double) dailyRainyArray.get(i);
+                DailyData data = new DailyData(maxtmp, mintmp, days, chance, code,status);
+                dailyDataList.add(data);
+                dailyButtons.get(i).setData(dailyDataList.get(i), hourlyDataList.get(i));
+            }
+            dailyButtons.get(0).handleClick();
+            hourlyPanel.fetchData(hourlyDataList.get(0),dailyDataList.get(0));
+
 
 
 
@@ -340,6 +339,7 @@ public class WeatherPanel extends JPanel {
                 return "Unknown weather condition"; // Default case for unknown codes
         }
     }
+
     public static String formatDate(String inputDate) {
         // Parse the input date
         LocalDate date = LocalDate.parse(inputDate);
@@ -357,4 +357,62 @@ public class WeatherPanel extends JPanel {
                     + " " + date.format(DateTimeFormatter.ofPattern("dd/MM"));
         }
     }
+    public static String getWeatherImagePath(int code, boolean isDay) {
+        switch (code) {
+            case 0:
+                return isDay ? "/Assets/clear-day.png" : "/Assets/clear-night.png";
+            case 1:
+                return  "/Assets/mainly-clear.png";
+            case 2:
+                return isDay ? "/Assets/partly-cloudy-day.png" : "/Assets/partly-cloudy-night.png";
+            case 3:
+                return "/Assets/overcast.png";
+            case 45:
+            case 48:
+                return "/Assets/fog.png";
+            case 51:
+            case 53:
+            case 55:
+                return "/Assets/rain-slight.png";
+            case 56:
+            case 57:
+                return "/Assets/freezing-rain.png";
+            case 61:
+            case 63:
+            case 65:
+                return "/Assets/rain-moderate.png";
+            case 66:
+            case 67:
+                return "/Assets/freezing-rain.png";
+            case 71:
+            case 73:
+            case 75:
+                return "/Assets/snowfall.png";
+            case 77:
+                return "/Assets/snowgrains.png";
+            case 80:
+            case 81:
+            case 82:
+                return  "/Assets/rain-moderate.png";
+            case 85:
+            case 86:
+                return "/Assets/snow-showers_day.png";
+            case 95:
+            case 96:
+            case 99:
+                return "/Assets/thunderstorm.png";
+            default:
+                return "/Assets/mainly-clear.png";
+        }
+
+    }
+    public static ImageIcon resizeImageIcon(ImageIcon icon, int width, int height) {
+        if (icon == null || icon.getImage() == null) {
+            throw new IllegalArgumentException("ImageIcon cannot be null or empty");
+        }
+
+        Image resizedImage = icon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
+        return new ImageIcon(resizedImage);
+    }
+
 }
