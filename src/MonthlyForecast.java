@@ -9,7 +9,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
-public class MonthlyForecast extends JFrame {
+public class MonthlyForecast extends JPanel {
     private JPanel calendarPanel;
     private LocalDate currentDate;
     private JButton selectedMonthButton;
@@ -19,27 +19,20 @@ public class MonthlyForecast extends JFrame {
         currentDate = LocalDate.now();
         weatherDataList = loadWeatherData();
 
-        setTitle("Weather Forecast");
-        setSize(800, 600);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout(10, 10));
+        setBackground(Color.WHITE);
 
         add(createHeader(), BorderLayout.NORTH);
         add(createMainContent(), BorderLayout.CENTER);
 
-        ((JPanel) getContentPane()).setBorder(
-                BorderFactory.createEmptyBorder(10, 10, 10, 10)
-        );
-
-        setLocationRelativeTo(null);
-        setVisible(true);
+        setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
     }
 
     private List<WeatherData> loadWeatherData() {
         List<WeatherData> dataList = new ArrayList<>();
         JSONParser parser = new JSONParser();
         try {
-            Object obj = parser.parse(new FileReader("Weather/src/MonthlyForecastData.json"));
+            Object obj = parser.parse(new FileReader("./src/MonthlyForecastData.json"));
             JSONArray jsonArray = (JSONArray) obj;
 
             for (Object item : jsonArray) {
@@ -65,12 +58,9 @@ public class MonthlyForecast extends JFrame {
         JPanel header = new JPanel(new BorderLayout());
         header.setOpaque(false);
 
-        JLabel yearLabel = new JLabel(
-                String.valueOf(currentDate.getYear()),
-                SwingConstants.CENTER
-        );
-        yearLabel.setForeground(Color.BLACK);
-        yearLabel.setFont(new Font("Arial", Font.BOLD, 20));
+        JLabel title = new JLabel("Monthly Forecast", SwingConstants.CENTER);
+        title.setForeground(Color.BLACK);
+        title.setFont(new Font("Arial", Font.BOLD, 24));
 
         JPanel monthPanel = new JPanel(new GridLayout(1, 6, 5, 5));
         monthPanel.setOpaque(false);
@@ -104,7 +94,7 @@ public class MonthlyForecast extends JFrame {
             }
         }
 
-        header.add(yearLabel, BorderLayout.NORTH);
+        header.add(title, BorderLayout.NORTH);
         header.add(monthPanel, BorderLayout.CENTER);
 
         return header;
@@ -117,7 +107,6 @@ public class MonthlyForecast extends JFrame {
         button.setFont(new Font("Arial", Font.BOLD, 14));
 
         button.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-
         button.setFocusPainted(false);
         button.setContentAreaFilled(false);
         button.setOpaque(true);
@@ -199,16 +188,15 @@ public class MonthlyForecast extends JFrame {
                 .findFirst()
                 .orElse(new WeatherData(date, "clear-day.png", 60, 45));
 
-        String iconPath = "Weather/src/Assets/" + dayData.weather; // Đường dẫn thư mục biểu tượng
+        String iconPath = "./src/Assets/" + dayData.weather;
         ImageIcon weatherIcon = new ImageIcon(iconPath);
 
         JLabel iconLabel = new JLabel();
         iconLabel.setHorizontalAlignment(SwingConstants.CENTER);
 
-        // Điều chỉnh kích thước icon theo kích thước cell
         cell.addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentResized(java.awt.event.ComponentEvent evt) {
-                int size = Math.min(cell.getWidth(), cell.getHeight()) / 3; // Tỉ lệ icon (1/3 cell)
+                int size = Math.min(cell.getWidth(), cell.getHeight()) / 2;
                 Image img = weatherIcon.getImage().getScaledInstance(size, size, Image.SCALE_SMOOTH);
                 iconLabel.setIcon(new ImageIcon(img));
             }
@@ -225,15 +213,7 @@ public class MonthlyForecast extends JFrame {
         cell.add(iconLabel, BorderLayout.CENTER);
         cell.add(tempLabel, BorderLayout.SOUTH);
 
-        if (date.equals(LocalDate.now())) {
-            cell.setBackground(new Color(210, 210, 210));
-        }
-
         return cell;
-    }
-
-    public static void main(String[] args) {
-        new MonthlyForecast();
     }
 
     static class WeatherData {
