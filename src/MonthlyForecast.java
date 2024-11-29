@@ -40,8 +40,8 @@ public class MonthlyForecast extends JPanel {
                 dataList.add(new WeatherData(
                         LocalDate.parse((String) jsonObject.get("date")),
                         (String) jsonObject.get("weather"),
-                        ((Long) jsonObject.get("highTemp")).intValue(),
-                        ((Long) jsonObject.get("lowTemp")).intValue()
+                        ((Number) jsonObject.get("highTemp")),
+                        ((Number) jsonObject.get("lowTemp"))
                 ));
             }
         } catch (Exception e) {
@@ -186,7 +186,7 @@ public class MonthlyForecast extends JPanel {
         WeatherData dayData = weatherDataList.stream()
                 .filter(wd -> wd.date.equals(date))
                 .findFirst()
-                .orElse(new WeatherData(date, "clear-day.png", 60, 45));
+                .orElse(new WeatherData(date, "clear-day.png", 30, 20));
 
         String iconPath = "./src/Assets/" + dayData.weather;
         ImageIcon weatherIcon = new ImageIcon(iconPath);
@@ -219,10 +219,10 @@ public class MonthlyForecast extends JPanel {
     static class WeatherData {
         LocalDate date;
         String weather;
-        int highTemp;
-        int lowTemp;
+        Number highTemp;
+        Number lowTemp;
 
-        WeatherData(LocalDate date, String weather, int highTemp, int lowTemp) {
+        WeatherData(LocalDate date, String weather, Number highTemp, Number lowTemp) {
             this.date = date;
             this.weather = weather;
             this.highTemp = highTemp;
